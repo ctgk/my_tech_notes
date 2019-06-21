@@ -1,3 +1,14 @@
 site_name: My Docs
+
 theme:
     name: 'material'
+
+extra:
+    search:
+        language: 'ja'
+
+markdown_extensions:
+    - admonition
+    - codehilite
+    - pymdownx.keys
+    - pymdownx.details
