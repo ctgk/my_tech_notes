@@ -53,6 +53,45 @@ markdown_extensions:
 import tensorflow as tf
 ```
 
+### markdown-blockdiag
+
+```bash
+pip install markdown-blockdiag
+```
+
+!!! warning
+    Windows10では動かないかも
+
+```javascript
+markdown_extensions:
+    - markdown_blockdiag:
+        format: svg
+```
+
+Example:
+
+```markdown
+blockdiag {
+    // simple graph
+    A -> B;
+    A -> B -> C -> D;
+    A -> E -> F -> G;
+}
+```
+
+Result:
+
+blockdiag {
+    // simple graph
+    B -> A;
+    A -> B -> C -> D;
+    A -> E -> F -> G;
+    X -> Z;
+    Y -> Z;
+    Z -> W;
+    Z -> V;
+}
+
 ### material
 
 おすすめテーマ
@@ -75,6 +114,22 @@ install command
 ```bash
 pip install pymdown-extensions
 ```
+
+#### arithmatex
+
+inline equation `$r = x\cos\theta$` $r = x\cos\theta$
+
+displayed formulas
+
+```markdown
+$$
+p(y|x) \propto p(x|y)p(y)
+$$
+```
+
+$$
+p(y|x) \propto p(x|y)p(y)
+$$
 
 #### details
 
@@ -107,3 +162,26 @@ Usage
 `++ctrl+alt+del++`
 
 ++ctrl+alt+del++
+
+#### mermaid
+
+```markdown
+
+```mermaid
+graph TD;
+    A --> B;
+    A --> B;
+    A --> C;
+    B --> D;
+    C --> D;
+
+```
+
+```mermaid
+graph TD;
+    A --> B;
+    A --> B;
+    A --> C;
+    B --> D;
+    C --> D;
+```

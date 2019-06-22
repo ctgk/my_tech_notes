@@ -2,11 +2,12 @@
 
 ## Settings
 
-vs codeの個人的設定
+VS Codeの個人的設定
 
 文字コードはutf8
 
 ```json
+// settings.json
 {
     // "editor.fontSize": 12, // 画面に合わせて調整
     "editor.hideCursorInOverviewRuler": true, // ?
@@ -23,24 +24,47 @@ vs codeの個人的設定
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
 
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe",
-    "terminal.integrated.rendererType": "dom",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe", // Windowsでwslをつかうなら
 
     "window.zoomLevel": 0,
 }
 ```
 
-## Extensions
+## Keyboard Shortcuts
 
-### Common
+```json
+// keybindings.json
+[
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "alt+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "enter",
+        "command": "-acceptSelectedSuggestionOnEnter",
+        "when": "acceptSuggestionOnEnter && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
+    },
+]
+```
 
-#### Bracket Pair Colorizer
+## 汎用拡張機能
+
+### Bracket Pair Colorizer
 
 There is a new version of this extension
 
 <https://github.com/CoenraadS/Bracket-Pair-Colorizer-2>
 
-#### Code Ace Jumper
+### Code Ace Jumper
 
 settings.json
 
@@ -62,7 +86,7 @@ keybindings.json
 ]
 ```
 
-#### code-eol 2019
+### code-eol 2019
 
 jeff-hykin.code-eol
 
@@ -74,24 +98,24 @@ jeff-hykin.code-eol
 }
 ```
 
-#### Doxygen Documentation Generator
+### Doxygen Documentation Generator
 
 とりあえず入れるだけで動作してくれている
 
-#### GitLens
+### GitLens
 
 eamodio.gitlens
 
 local環境でgithubとかみたいにgitの情報を見やすくしてくれる
 
-#### GlassIt-VSC
+### GlassIt-VSC
 
 背景透明化
 
 !!! Note
     Windows10のみ対応
 
-#### Material Icon Theme
+### Material Icon Theme
 
 ```json
 {
@@ -99,7 +123,7 @@ local環境でgithubとかみたいにgitの情報を見やすくしてくれる
 }
 ```
 
-#### Material Theme
+### Material Theme
 
 ```json
 {
@@ -107,7 +131,7 @@ local環境でgithubとかみたいにgitの情報を見やすくしてくれる
 }
 ```
 
-#### SSH FS
+### SSH FS
 
 リモートファイルをVSCodeで編集できる
 
@@ -129,7 +153,7 @@ local環境でgithubとかみたいにgitの情報を見やすくしてくれる
 !!! Note
     2019/4/30にMicrosoft自ら「Remote Development」という拡張機能を発表している。
 
-#### zenkaku
+### zenkaku
 
 mosapride.zenkaku
 
@@ -137,41 +161,41 @@ mosapride.zenkaku
 
 ++ctrl+shift+p++ → `enable zenkaku`
 
-### Language specific
+## 各言語用拡張機能
 
-#### AutoHotkey
+### AutoHotkey
 
 slevesque.vscode-autohotkey
 
 autohotkeyのスクリプトを編集するときにsyntaxを見やすくするためだけに入れている
 
-#### C/C++
+### C/C++
 
 c_cpp_properties.jsonをプロジェクト毎に作るのが面倒
 
-#### CMake
+### CMake
 
 twxs.cmake
 
 WSL上のcmakeを設定する方法ってあるのかな？
 
-#### markdownlint
+### markdownlint
 
 davidanson.vscode-markdownlint
 
 とりあえず入れるだけでめっちゃ注意してくれる
 
-##### Markdown Preview Enhanced
+### Markdown Preview Enhanced
 
 shd101wyy.markdown-preview-enhanced
 
 インストールするだけでdefaultとは別にこの拡張機能でmarkdownのpreviewが見れるようになる
 
-#### Python
+### Python
 
 WSL上のPythonをWindows上のVSCodeからデバッグできるようにならないのかな？
 
-##### autoDocstring
+### autoDocstring
 
 Python用のdocstring生成
 
@@ -183,13 +207,13 @@ doxygen documentation generatorで代替可能？
 }
 ```
 
-##### Language-Cython
+### Language-Cython
 
 guyskk.language-cython
 
 Cythonを少し見やすくしてくれる。
 
-#### Rainbow CSV
+### Rainbow CSV
 
 mechatroner.rainbow-csv
 
