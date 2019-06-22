@@ -393,7 +393,20 @@ graph TD;
     B --&gt; D;
     C --&gt; D;</div>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Firefoxだとノードのサイズがいい感じになる。
+Google Chromeだとテキストに対して大きなノードになってしまう。</p>
+</div>
 <h3 id="styling">Styling</h3>
+<div class="codehilite"><pre><span></span><span class="err">```</span><span class="nt">mermaid</span>
+<span class="nt">graph</span> <span class="nt">LR</span>
+    <span class="nt">id1</span><span class="o">(</span><span class="nt">Start</span><span class="o">)</span><span class="nt">--</span><span class="o">&gt;</span><span class="nt">id2</span><span class="o">(</span><span class="nt">Stop</span><span class="o">)</span>
+    <span class="nt">style</span> <span class="nt">id1</span> <span class="nt">fill</span><span class="o">:</span><span class="p">#</span><span class="nn">f9f</span><span class="o">,</span><span class="nt">stroke</span><span class="o">:</span><span class="p">#</span><span class="nn">333</span><span class="o">,</span><span class="nt">stroke-width</span><span class="p">:</span><span class="nd">4px</span><span class="o">;</span>
+    <span class="nt">style</span> <span class="nt">id2</span> <span class="nt">fill</span><span class="o">:</span><span class="p">#</span><span class="nn">ccf</span><span class="o">,</span><span class="nt">stroke</span><span class="o">:</span><span class="p">#</span><span class="nn">f66</span><span class="o">,</span><span class="nt">stroke-width</span><span class="p">:</span><span class="nd">2px</span><span class="o">,</span><span class="nt">stroke-dasharray</span><span class="o">:</span> <span class="nt">5</span><span class="o">,</span> <span class="nt">5</span><span class="o">;</span>
+<span class="err">```</span>
+</pre></div>
+
 <div class="mermaid">graph LR
     id1(Start)--&gt;id2(Stop)
     style id1 fill:#f9f,stroke:#333,stroke-width:4px;
