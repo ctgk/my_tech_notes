@@ -36,7 +36,7 @@
     
     
       
-        <title>Command Line Interface - My Docs</title>
+        <title>Markdown - My Docs</title>
       
     
     
@@ -81,7 +81,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#command-line-interface" tabindex="1" class="md-skip">
+      <a href="#markdown" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -107,7 +107,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Command Line Interface
+                Markdown
               
             </span>
           
@@ -186,6 +186,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../cli/" title="Command Line Interface" class="md-nav__link">
+      Command Line Interface
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -197,11 +209,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Command Line Interface
+        Markdown
       </label>
     
-    <a href="./" title="Command Line Interface" class="md-nav__link md-nav__link--active">
-      Command Line Interface
+    <a href="./" title="Markdown" class="md-nav__link md-nav__link--active">
+      Markdown
     </a>
     
       
@@ -215,22 +227,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prompt" title="Prompt" class="md-nav__link">
-    Prompt
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputrc" title="inputrc" class="md-nav__link">
-    inputrc
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vimrc" title="vimrc" class="md-nav__link">
-    vimrc
+  <a href="#fenced-code" title="fenced code" class="md-nav__link">
+    fenced code
   </a>
   
 </li>
@@ -243,18 +241,6 @@
   
 </nav>
     
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../markdown/" title="Markdown" class="md-nav__link">
-      Markdown
-    </a>
   </li>
 
     
@@ -327,22 +313,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prompt" title="Prompt" class="md-nav__link">
-    Prompt
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#inputrc" title="inputrc" class="md-nav__link">
-    inputrc
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#vimrc" title="vimrc" class="md-nav__link">
-    vimrc
+  <a href="#fenced-code" title="fenced code" class="md-nav__link">
+    fenced code
   </a>
   
 </li>
@@ -364,50 +336,21 @@
               
                 
                 
-                <h1 id="command-line-interface">Command Line Interface</h1>
-<h2 id="prompt">Prompt</h2>
-<p>For Linux</p>
-<div class="codehilite"><pre><span></span>PS1=&quot;\[\033[0;37m\]\342\224\214\342\224\200\$([[ \$? != 0 ]] <span class="err">&amp;&amp;</span> echo \&quot;[\[\033[1;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\&quot;)[$(if [[ <span class="cp">${</span><span class="n">EUID</span><span class="cp">}</span> == 0 ]]; then echo &#39;\[\033[1;31m\]\h&#39;; else echo &#39;\[\033[0;33m\]\u\[\033[0;37m\]@\[\033[0;96m\]\h&#39;; fi)\[\033[0;37m\]]\342\224\200[\[\033[1;32m\]\w\[\033[0;37m\]]\$(__git_ps1 &#39;(%s)&#39;)\n\[\033[0;37m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\$ &quot;
+                <h1 id="markdown">Markdown</h1>
+<h2 id="fenced-code">fenced code</h2>
+<div class="codehilite"><pre><span></span><span class="err">```</span><span class="n">c</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="err">```</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span>┌─[username@hostname]─[current-working-dir](git-branch)
-└──╼ $
+<p>fenced code in fenced code</p>
+<div class="codehilite"><pre><span></span><span class="err">````</span><span class="n">markdown</span>
 
-┌─[✗]─[username@hostname]─[current-working-dir](git-branch)
-└──╼ $
-</pre></div>
+<span class="err">```</span><span class="n">c</span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="err">```</span>
 
-<h2 id="inputrc">inputrc</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># .inputrc</span>
-<span class="nb">set</span> completion-ignore-case on
-<span class="nb">set</span> bell-style none
-</pre></div>
-
-<h2 id="vimrc">vimrc</h2>
-<div class="codehilite"><pre><span></span><span class="c1"># .vimrc</span>
-filetype plugin indent on
-
-syntax on
-
-<span class="nb">set</span> hlsearch
-<span class="nb">set</span> ignorecase
-<span class="nb">set</span> smartcase
-<span class="nb">set</span> autoindent
-
-<span class="nb">set</span> ruler
-<span class="nb">set</span> number
-<span class="nb">set</span> list
-<span class="nb">set</span> wildmenu
-<span class="nb">set</span> showcmd
-
-<span class="nb">set</span> <span class="nv">shiftwidth</span><span class="o">=</span><span class="m">4</span>
-<span class="nb">set</span> <span class="nv">softtabstop</span><span class="o">=</span><span class="m">4</span>
-<span class="nb">set</span> expandtab
-<span class="nb">set</span> <span class="nv">tabstop</span><span class="o">=</span><span class="m">4</span>
-<span class="nb">set</span> smarttab
-
-<span class="nb">set</span> <span class="nv">clipboard</span><span class="o">=</span>unnamed
-<span class="nb">set</span> visualbell <span class="nv">t_vb</span><span class="o">=</span>
+<span class="err">````</span>
 </pre></div>
                 
                   
@@ -429,7 +372,7 @@ syntax on
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href=".." title="Welcome to MkDocs" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../cli/" title="Command Line Interface" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -438,19 +381,19 @@ syntax on
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Welcome to MkDocs
+                Command Line Interface
               </span>
             </div>
           </a>
         
         
-          <a href="../markdown/" title="Markdown" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mermaid/" title="mermaid" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Markdown
+                mermaid
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

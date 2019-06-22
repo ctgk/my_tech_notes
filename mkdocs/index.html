@@ -57,7 +57,11 @@
     <link rel="stylesheet" href="../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../css/heading.css">
+    
+      <link rel="stylesheet" href="https://unpkg.com/mermaid@8.0.0/dist/mermaid.css">
+    
+      <link rel="stylesheet" href="../css/mermaid.css">
     
     
       
@@ -194,6 +198,30 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../markdown/" title="Markdown" class="md-nav__link">
+      Markdown
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../mermaid/" title="mermaid" class="md-nav__link">
+      mermaid
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -297,6 +325,13 @@
           <li class="md-nav__item">
   <a href="#keys" title="keys" class="md-nav__link">
     keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mermaid" title="mermaid" class="md-nav__link">
+    mermaid
   </a>
   
 </li>
@@ -445,6 +480,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#mermaid" title="mermaid" class="md-nav__link">
+    mermaid
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -480,7 +522,6 @@
         <span class="nx">language</span><span class="o">:</span> <span class="s1">&#39;ja&#39;</span>
 </pre></div>
 
-
 <h2 id="github">GitHub連携</h2>
 <p>MkDocsで作ったサイトを<a href="https://github.com">github</a>で公開する手順</p>
 <ol>
@@ -502,62 +543,57 @@
     <span class="o">-</span> <span class="nx">admonition</span>
 </pre></div>
 
-
 <h3 id="codehilite">codehilite</h3>
 <div class="codehilite"><pre><span></span>pip install pygments
 </pre></div>
-
 
 <p><code>mkdocs.yml</code>に以下を追加</p>
 <div class="codehilite"><pre><span></span><span class="nx">markdown_extensions</span><span class="o">:</span>
     <span class="o">-</span> <span class="nx">codehilite</span>
 </pre></div>
 
-
 <p>例</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
 </pre></div>
-
 
 <h3 id="markdown-blockdiag">markdown-blockdiag</h3>
 <div class="codehilite"><pre><span></span>pip install markdown-blockdiag
 </pre></div>
 
-
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Windows10では動かないかも</p>
+</div>
 <div class="codehilite"><pre><span></span><span class="nx">markdown_extensions</span><span class="o">:</span>
     <span class="o">-</span> <span class="nx">markdown_blockdiag</span><span class="o">:</span>
         <span class="nx">format</span><span class="o">:</span> <span class="nx">svg</span>
 </pre></div>
 
-
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>blockdiag {
     // simple graph
+    A -&gt; B;
     A -&gt; B -&gt; C -&gt; D;
     A -&gt; E -&gt; F -&gt; G;
 }
 </pre></div>
 
-
 <p>Result:</p>
-<p><img src="data:image/svg+xml;charset=utf-8,%3C%3Fxml%20version%3D%271.0%27%20encoding%3D%27UTF-8%27%3F%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.0//EN%22%20%22http%3A//www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd%22%3E%0A%3Csvg%20viewBox%3D%220%200%20832%20200%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Ainkspace%3D%22http%3A//www.inkscape.org/namespaces/inkscape%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%0A%20%20%3Cdefs%20id%3D%22defs_block%22%3E%0A%20%20%20%20%3Cfilter%20height%3D%221.504%22%20id%3D%22filter_blur%22%20inkspace%3Acollect%3D%22always%22%20width%3D%221.1575%22%20x%3D%22-0.07875%22%20y%3D%22-0.252%22%3E%0A%20%20%20%20%20%20%3CfeGaussianBlur%20id%3D%22feGaussianBlur3780%22%20inkspace%3Acollect%3D%22always%22%20stdDeviation%3D%224.2%22%20/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Ctitle%3Eblockdiag%3C/title%3E%0A%20%20%3Cdesc%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%2267%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22259%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22259%22%20y%3D%22126%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22451%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22643%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22451%22%20y%3D%22126%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22643%22%20y%3D%22126%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%2264%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22128.0%22%20y%3D%2266%22%3EA%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22256%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22320.0%22%20y%3D%2266%22%3EB%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22256%22%20y%3D%22120%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22320.0%22%20y%3D%22146%22%3EE%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22448%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22512.0%22%20y%3D%2266%22%3EC%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22640%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22704.0%22%20y%3D%2266%22%3ED%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22448%22%20y%3D%22120%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22512.0%22%20y%3D%22146%22%3EF%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22640%22%20y%3D%22120%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22704.0%22%20y%3D%22146%22%3EG%3C/text%3E%0A%20%20%3Cpath%20d%3D%22M%20192%2060%20L%20248%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22255%2C60%20248%2C56%20248%2C64%20255%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20192%2060%20L%20224%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20224%2060%20L%20224%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20224%20140%20L%20248%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22255%2C140%20248%2C136%20248%2C144%20255%2C140%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%2060%20L%20440%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22447%2C60%20440%2C56%20440%2C64%20447%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20576%2060%20L%20632%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22639%2C60%20632%2C56%20632%2C64%20639%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%20140%20L%20440%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22447%2C140%20440%2C136%20440%2C144%20447%2C140%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20576%20140%20L%20632%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22639%2C140%20632%2C136%20632%2C144%20639%2C140%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%3C/svg%3E%0A" /></p>
+<p><img src="data:image/svg+xml;charset=utf-8,%3C%3Fxml%20version%3D%271.0%27%20encoding%3D%27UTF-8%27%3F%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.0//EN%22%20%22http%3A//www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd%22%3E%0A%3Csvg%20viewBox%3D%220%200%201024%20440%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Ainkspace%3D%22http%3A//www.inkscape.org/namespaces/inkscape%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%3E%0A%20%20%3Cdefs%20id%3D%22defs_block%22%3E%0A%20%20%20%20%3Cfilter%20height%3D%221.504%22%20id%3D%22filter_blur%22%20inkspace%3Acollect%3D%22always%22%20width%3D%221.1575%22%20x%3D%22-0.07875%22%20y%3D%22-0.252%22%3E%0A%20%20%20%20%20%20%3CfeGaussianBlur%20id%3D%22feGaussianBlur3780%22%20inkspace%3Acollect%3D%22always%22%20stdDeviation%3D%224.2%22%20/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%20%20%3Ctitle%3Eblockdiag%3C/title%3E%0A%20%20%3Cdesc%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%2267%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22451%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22259%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22259%22%20y%3D%22126%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22451%22%20y%3D%22126%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22643%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22835%22%20y%3D%2246%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%2267%22%20y%3D%22206%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%2267%22%20y%3D%22366%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22259%22%20y%3D%22206%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22451%22%20y%3D%22206%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%280%2C0%2C0%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20style%3D%22filter%3Aurl%28%23filter_blur%29%3Bopacity%3A0.7%3Bfill-opacity%3A1%22%20width%3D%22128%22%20x%3D%22451%22%20y%3D%22286%22%20/%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%2264%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22128.0%22%20y%3D%2266%22%3EB%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22448%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22512.0%22%20y%3D%2266%22%3EE%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22256%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22320.0%22%20y%3D%2266%22%3EA%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22256%22%20y%3D%22120%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22320.0%22%20y%3D%22146%22%3EC%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22448%22%20y%3D%22120%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22512.0%22%20y%3D%22146%22%3ED%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22640%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22704.0%22%20y%3D%2266%22%3EF%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22832%22%20y%3D%2240%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22896.0%22%20y%3D%2266%22%3EG%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%2264%22%20y%3D%22200%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22128.0%22%20y%3D%22226%22%3EX%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%2264%22%20y%3D%22360%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22128.0%22%20y%3D%22386%22%3EY%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22256%22%20y%3D%22200%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22320.0%22%20y%3D%22226%22%3EZ%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22448%22%20y%3D%22200%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22512.0%22%20y%3D%22226%22%3EW%3C/text%3E%0A%20%20%3Crect%20fill%3D%22rgb%28255%2C255%2C255%29%22%20height%3D%2240%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20width%3D%22128%22%20x%3D%22448%22%20y%3D%22280%22%20/%3E%0A%20%20%3Ctext%20fill%3D%22rgb%280%2C0%2C0%29%22%20font-family%3D%22sans-serif%22%20font-size%3D%2211%22%20font-style%3D%22normal%22%20font-weight%3D%22normal%22%20text-anchor%3D%22middle%22%20textLength%3D%226%22%20x%3D%22512.0%22%20y%3D%22306%22%3EV%3C/text%3E%0A%20%20%3Cpath%20d%3D%22M%20192%2060%20L%20248%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22255%2C60%20248%2C56%20248%2C64%20255%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20192%2060%20L%20224%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20224%2060%20L%20224%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20224%20140%20L%20248%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22255%2C140%20248%2C136%20248%2C144%20255%2C140%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%2060%20L%20400%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20400%2060%20L%20400%2025%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20128%2025%20L%20400%2025%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20128%2025%20L%20128%2032%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22128%2C39%20124%2C32%20132%2C32%20128%2C39%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%2060%20L%20440%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22447%2C60%20440%2C56%20440%2C64%20447%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%20140%20L%20440%20140%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22447%2C140%20440%2C136%20440%2C144%20447%2C140%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20576%2060%20L%20632%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22639%2C60%20632%2C56%20632%2C64%20639%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20768%2060%20L%20824%2060%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22831%2C60%20824%2C56%20824%2C64%20831%2C60%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20192%20220%20L%20248%20220%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22255%2C220%20248%2C216%20248%2C224%20255%2C220%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%20220%20L%20440%20220%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22447%2C220%20440%2C216%20440%2C224%20447%2C220%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20384%20220%20L%20416%20220%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20416%20220%20L%20416%20300%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20416%20300%20L%20440%20300%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22447%2C300%20440%2C296%20440%2C304%20447%2C300%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20192%20380%20L%20240%20380%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20240%20380%20L%20240%20220%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpath%20d%3D%22M%20240%20220%20L%20248%20220%22%20fill%3D%22none%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%20%20%3Cpolygon%20fill%3D%22rgb%280%2C0%2C0%29%22%20points%3D%22255%2C220%20248%2C216%20248%2C224%20255%2C220%22%20stroke%3D%22rgb%280%2C0%2C0%29%22%20/%3E%0A%3C/svg%3E%0A" /></p>
 <h3 id="material">material</h3>
 <p>おすすめテーマ</p>
 <div class="codehilite"><pre><span></span>pip install mkdocs-material
 </pre></div>
-
 
 <p><code>mkdocs.yml</code>に以下を追加</p>
 <div class="codehilite"><pre><span></span><span class="nx">theme</span><span class="o">:</span>
     <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;material&#39;</span>
 </pre></div>
 
-
 <h3 id="pymdownx">pymdownx</h3>
 <p>install command</p>
 <div class="codehilite"><pre><span></span>pip install pymdown-extensions
 </pre></div>
-
 
 <h4 id="arithmatex">arithmatex</h4>
 <p>inline equation <code>$r = x\cos\theta$</code> <span><span class="MathJax_Preview">r = x\cos\theta</span><script type="math/tex">r = x\cos\theta</script></span></p>
@@ -566,7 +602,6 @@
 p(y|x) \propto p(x|y)p(y)
 $$
 </pre></div>
-
 
 <div>
 <div class="MathJax_Preview">
@@ -581,12 +616,10 @@ p(y|x) \propto p(x|y)p(y)
     <span class="o">-</span> <span class="nx">pymdownx</span><span class="p">.</span><span class="nx">details</span>
 </pre></div>
 
-
 <p>Usage</p>
 <div class="codehilite"><pre><span></span>??? note
     detail
 </pre></div>
-
 
 <details class="note"><summary>Note</summary><p>detail</p>
 </details>
@@ -596,10 +629,25 @@ p(y|x) \propto p(x|y)p(y)
     <span class="o">-</span> <span class="nx">pymdownx</span><span class="p">.</span><span class="nx">keys</span>
 </pre></div>
 
-
 <p>Usage</p>
 <p><code>++ctrl+alt+del++</code></p>
 <p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-delete">Del</kbd></span></p>
+<h4 id="mermaid">mermaid</h4>
+<div class="codehilite"><pre><span></span>```mermaid
+graph TD;
+    A --&gt; B;
+    A --&gt; B;
+    A --&gt; C;
+    B --&gt; D;
+    C --&gt; D;
+</pre></div>
+
+<div class="mermaid">graph TD;
+    A --&gt; B;
+    A --&gt; B;
+    A --&gt; C;
+    B --&gt; D;
+    C --&gt; D;</div>
                 
                   
                 
@@ -620,7 +668,7 @@ p(y|x) \propto p(x|y)p(y)
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../cli/" title="Command Line Interface" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../mermaid/" title="mermaid" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -629,7 +677,7 @@ p(y|x) \propto p(x|y)p(y)
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Command Line Interface
+                mermaid
               </span>
             </div>
           </a>
@@ -691,6 +739,8 @@ p(y|x) \propto p(x|y)p(y)
       <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js"></script>
       
     
   </body>
