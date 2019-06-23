@@ -1,5 +1,15 @@
 # MkDocs
 
+## Install
+
+```bash
+pip instal mkdocs
+pip install mkdocs-material
+pip install markdown-blockdiag
+```
+
+下にあるpygmentsなどはmkdocs-materialをインストールすれば勝手に入る
+
 ## 日本語検索
 
 日本語検索に対応させるには`mkdocs.yml`に以下を追加
