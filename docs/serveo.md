@@ -1,5 +1,7 @@
 # serveo
 
+## How to use
+
 SSHクライアントをつかって、SSH接続/ローカルWebページを公開できる
 
 ```bash

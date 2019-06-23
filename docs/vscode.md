@@ -27,6 +27,7 @@ VS Codeの個人的設定
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe", // Windowsでwslをつかうなら
 
     "window.zoomLevel": 0,
+    "workbench.editor.enablePreview": false,
 }
 ```
 

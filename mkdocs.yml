@@ -17,7 +17,8 @@ extra_javascript:
 
 markdown_extensions:
     - admonition
-    - codehilite
+    - codehilite:
+        linenums: true
     - markdown_blockdiag:
         format: svg
     - pymdownx.arithmatex
@@ -28,3 +29,6 @@ markdown_extensions:
             - name: mermaid
               class: mermaid
               format: !!python/name:pymdownx.superfences.fence_div_format
+    - toc:
+        permalink: False
+        separator: "_"

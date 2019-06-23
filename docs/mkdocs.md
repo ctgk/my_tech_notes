@@ -60,7 +60,7 @@ pip install markdown-blockdiag
 ```
 
 !!! warning
-    Windows10では動かないかも
+    Windows10では動かないかも。WSLなら動いた。
 
 ```javascript
 markdown_extensions:
@@ -163,7 +163,10 @@ Usage
 
 ++ctrl+alt+del++
 
-#### mermaid
+キー一覧などの詳細：
+<https://facelessuser.github.io/pymdown-extensions/extensions/keys/>
+
+#### [mermaid](mermaid.md)
 
 ```markdown
 

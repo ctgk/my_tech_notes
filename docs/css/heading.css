@@ -17,13 +17,39 @@
     content: "";
 }
 
-.md-typeset h2 {
-    font-weight: 500;
+/* .md-typeset h2 {
+    font-weight: 900;
     color: #000;
-    border-bottom: solid 2px #f18b21;
-    /* border-bottom: solid 2px #100; */
+    border-bottom: solid 2px #f98b21;
     padding-bottom: 5px;
+    padding: 0.5em;
+    color: #494949;
+    background: #fffaf4;
+    border-left: solid 5px #ffaf58;
+} */
+
+.md-typeset h2 {
+    font-weight: 900;
+    color: #000;
+    padding-bottom: 5px;
+    padding: 0.5em;
+    color: #494949;
+    background: #f5f5ff;
+    border-left: solid 5px #2d74ff;
+    border-bottom: solid 2px #2d74ff;
 }
+
 .md-typeset h3 {
-    border-bottom: 1px dotted #888;
+    font-weight: 700;
+    padding: 0.25em 0.5em;/*上下 左右の余白*/
+    color: #494949;/*文字色*/
+    background: transparent;/*背景透明に*/
+    border-left: solid 3px #7db4e6;/*左線*/
+    border-bottom: solid 1px #7db4e6;
+}
+
+.md-typeset h4 {
+    font-size: large;
+    font-weight: 700;
+    border-bottom: 1px dotted #111111;
 }
