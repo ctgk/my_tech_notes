@@ -36,7 +36,7 @@
     
     
       
-        <title>C/C++ - My Docs</title>
+        <title>C/C++ - My Notes</title>
       
     
     
@@ -88,7 +88,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="My Docs" class="md-header-nav__button md-logo">
+        <a href=".." title="My Notes" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -101,7 +101,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              My Docs
+              My Notes
             </span>
             <span class="md-header-nav__topic">
               
@@ -158,12 +158,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="My Docs" class="md-nav__button md-logo">
+    <a href=".." title="My Notes" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    My Docs
+    My Notes
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -334,6 +334,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../serveo/" title="serveo" class="md-nav__link">
       serveo
     </a>
@@ -348,6 +360,18 @@
   <li class="md-nav__item">
     <a href="../vscode/" title="Visual Studio Code" class="md-nav__link">
       Visual Studio Code
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../wsl/" title="Windows Subsystem for Linux" class="md-nav__link">
+      Windows Subsystem for Linux
     </a>
   </li>
 
@@ -428,25 +452,83 @@
 1. [VSCode](vscode.md)をインストールし、[C/C++拡張](../vscode#cc)を追加
 1. 作業用のディレクトリを作成
 
-    wzxhzdk:2
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>mkdir visual_studio_workspace
+</pre></div>
+</td></tr></table>
 
 1. 作業用ディレクトリをVSCodeで開く
 
-    wzxhzdk:3
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>code visual_studio_workspace
+</pre></div>
+</td></tr></table>
 
 1. ++ctrl+shift+p++
 1. `C/C++: Edit Configurations (JSON)`
 1. インクルードディレクトリを追加
 
-    wzxhzdk:4
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;configurations&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;includePath&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;${workspaceFolder}/**&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.14.26428/ATLMFC/include&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.14.26428/include&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Windows Kits/NETFXSDK/4.6.1/include/um&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Windows Kits/10/include/10.0.17134.0/ucrt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Windows Kits/10/include/10.0.17134.0/shared&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Windows Kits/10/include/10.0.17134.0/um&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Windows Kits/10/include/10.0.17134.0/winrt&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;C:/Program Files (x86)/Windows Kits/10/include/10.0.17134.0/cppwinrt&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
 
 1. 作業中のディレクトリ下に`CMakeLists.txt`を作成
 
-    wzxhzdk:5
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">cmake_minimum_required</span><span class="p">(</span><span class="k">VERSION</span> <span class="mi">3</span><span class="p">.</span><span class="mi">13</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">project</span><span class="p">(</span><span class="n">visual_studio_project</span><span class="p">)</span>
+<span class="n">add_executable</span><span class="p">(</span><span class="n">main</span> <span class="n">main</span><span class="p">.</span><span class="n">cpp</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
 
 1. `main.cpp`を作成
 
-    wzxhzdk:6
+    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;hello world&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
 
 ### 参考
 
