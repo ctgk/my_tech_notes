@@ -132,6 +132,10 @@ local環境でgithubとかみたいにgitの情報を見やすくしてくれる
 }
 ```
 
+### Remote Development
+
+これを入れればWindows上のVSCodeでWSLなどのPythonなどでの開発ができるようになる
+
 ### SSH FS
 
 リモートファイルをVSCodeで編集できる
