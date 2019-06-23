@@ -210,6 +210,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../c_cpp/" title="C/C++" class="md-nav__link">
+      C/C++
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../cli/" title="Command Line Interface" class="md-nav__link">
       Command Line Interface
     </a>
@@ -373,30 +385,38 @@
                 <h1 id="git">Git</h1>
 <h2 id="config">config</h2>
 <p>現在のgitの設定を表示</p>
-<div class="codehilite"><pre><span></span>git config --global --list
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global --list
 </pre></div>
+</td></tr></table>
 
 <p>現ディレクトリのgitの設定を表示</p>
-<div class="codehilite"><pre><span></span>git config --list
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --list
 </pre></div>
+</td></tr></table>
 
 <p>ユーザ名、メールアドレスの設定</p>
-<div class="codehilite"><pre><span></span>git config --global user.name <span class="s2">&quot;ctgk&quot;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global user.name <span class="s2">&quot;ctgk&quot;</span>
 git config --global user.email r1135nj54w@gmail.com
 </pre></div>
+</td></tr></table>
 
 <p>エディタの設定</p>
-<div class="codehilite"><pre><span></span>git config --global core.editor <span class="s1">&#39;vim -c &quot;set fenc=utf-8&quot;&#39;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global core.editor <span class="s1">&#39;vim -c &quot;set fenc=utf-8&quot;&#39;</span>
 </pre></div>
+</td></tr></table>
 
 <p>gitignoreの設定</p>
-<div class="codehilite"><pre><span></span>git config --global core.excludesfile ~/.gitignore_global
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global core.excludesfile ~/.gitignore_global
 </pre></div>
+</td></tr></table>
 
 <p>vscodeのworkingspace用設定フォルダをgit管理からのぞく</p>
-<div class="codehilite"><pre><span></span># .gitignore_global
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span># .gitignore_global
 .vscode/
 </pre></div>
+</td></tr></table>
                 
                   
                 

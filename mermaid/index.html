@@ -210,6 +210,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../c_cpp/" title="C/C++" class="md-nav__link">
+      C/C++
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="../cli/" title="Command Line Interface" class="md-nav__link">
       Command Line Interface
     </a>
@@ -273,7 +285,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#flow-chart" title="Flow Chart" class="md-nav__link">
+  <a href="#flow_chart" title="Flow Chart" class="md-nav__link">
     Flow Chart
   </a>
   
@@ -293,7 +305,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sequence-diagram" title="Sequence Diagram" class="md-nav__link">
+  <a href="#sequence_diagram" title="Sequence Diagram" class="md-nav__link">
     Sequence Diagram
   </a>
   
@@ -367,7 +379,7 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#flow-chart" title="Flow Chart" class="md-nav__link">
+  <a href="#flow_chart" title="Flow Chart" class="md-nav__link">
     Flow Chart
   </a>
   
@@ -387,7 +399,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sequence-diagram" title="Sequence Diagram" class="md-nav__link">
+  <a href="#sequence_diagram" title="Sequence Diagram" class="md-nav__link">
     Sequence Diagram
   </a>
   
@@ -411,7 +423,18 @@
                 
                 
                 <h1 id="mermaid">mermaid</h1>
-<div class="codehilite"><pre><span></span><span class="nx">extra_css</span><span class="o">:</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">extra_css</span><span class="o">:</span>
     <span class="o">-</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//unpkg.com/mermaid@8.0.0/dist/mermaid.css</span>
 
 <span class="nx">extra_javascript</span><span class="o">:</span>
@@ -424,13 +447,21 @@
               <span class="kr">class</span><span class="o">:</span> <span class="nx">mermaid</span>
               <span class="nx">format</span><span class="o">:</span> <span class="o">!!</span><span class="nx">python</span><span class="o">/</span><span class="nx">name</span><span class="o">:</span><span class="nx">pymdownx</span><span class="p">.</span><span class="nx">superfences</span><span class="p">.</span><span class="nx">fence_div_format</span>
 </pre></div>
+</td></tr></table>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><a href="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.js">https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.js</a>などと上記のmermaid.min.jsの違いは不明</p>
 </div>
-<h2 id="flow-chart">Flow Chart</h2>
-<div class="codehilite"><pre><span></span>```mermaid
+<h2 id="flow_chart">Flow Chart</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>```mermaid
 graph TD;
     A --&gt; B;
     A --&gt; B;
@@ -439,6 +470,7 @@ graph TD;
     C --&gt; D;
 ```
 </pre></div>
+</td></tr></table>
 
 <div class="mermaid">graph TD;
     A --&gt; B;
@@ -453,21 +485,33 @@ graph TD;
 Google Chromeだとテキストに対して大きなノードになってしまう。</p>
 </div>
 <h3 id="styling">Styling</h3>
-<div class="codehilite"><pre><span></span><span class="err">```</span><span class="nt">mermaid</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">```</span><span class="nt">mermaid</span>
 <span class="nt">graph</span> <span class="nt">LR</span>
     <span class="nt">id1</span><span class="o">(</span><span class="nt">Start</span><span class="o">)</span><span class="nt">--</span><span class="o">&gt;</span><span class="nt">id2</span><span class="o">(</span><span class="nt">Stop</span><span class="o">)</span>
     <span class="nt">style</span> <span class="nt">id1</span> <span class="nt">fill</span><span class="o">:</span><span class="p">#</span><span class="nn">f9f</span><span class="o">,</span><span class="nt">stroke</span><span class="o">:</span><span class="p">#</span><span class="nn">333</span><span class="o">,</span><span class="nt">stroke-width</span><span class="p">:</span><span class="nd">4px</span><span class="o">;</span>
     <span class="nt">style</span> <span class="nt">id2</span> <span class="nt">fill</span><span class="o">:</span><span class="p">#</span><span class="nn">ccf</span><span class="o">,</span><span class="nt">stroke</span><span class="o">:</span><span class="p">#</span><span class="nn">f66</span><span class="o">,</span><span class="nt">stroke-width</span><span class="p">:</span><span class="nd">2px</span><span class="o">,</span><span class="nt">stroke-dasharray</span><span class="o">:</span> <span class="nt">5</span><span class="o">,</span> <span class="nt">5</span><span class="o">;</span>
 <span class="err">```</span>
 </pre></div>
+</td></tr></table>
 
 <div class="mermaid">graph LR
     id1(Start)--&gt;id2(Stop)
     style id1 fill:#f9f,stroke:#333,stroke-width:4px;
     style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5;</div>
 
-<h2 id="sequence-diagram">Sequence Diagram</h2>
-<div class="codehilite"><pre><span></span>```mermaid
+<h2 id="sequence_diagram">Sequence Diagram</h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>```mermaid
 sequenceDiagram
 loop every day
     Alice-&gt;&gt;John: Hello John, how are you?
@@ -475,6 +519,7 @@ loop every day
 end
 ```
 </pre></div>
+</td></tr></table>
 
 <div class="mermaid">sequenceDiagram
 loop every day
