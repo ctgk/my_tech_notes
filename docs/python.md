@@ -33,6 +33,12 @@ Linuxの場合はgit, pyenv, minicondaを使っていく
     source ~/.bashrc
     ```
 
+1. 好みでpyenv_aliasをインストール
+
+    ```bash
+    git clone https://github.com/s1341/pyenv-alias.git $(pyenv root)/plugins/pyenv-alias
+    ```
+
 1. インストールできる環境を確認する
 
     ```bash

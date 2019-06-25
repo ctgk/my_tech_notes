@@ -1,5 +1,15 @@
 # C/C++
 
+## Jupyter Notebook
+
+```bash
+conda install xeus-cling -c conda-forge
+```
+
+xeus-cling用にまっさらなminiconda環境を用意したほうがいいらしい
+
+<https://github.com/QuantStack/xeus-cling>
+
 ## メモリリークチェック
 
 ```bash
