@@ -2,9 +2,11 @@
 
 ## インストール
 
-### Linux
+### intelpython
 
-Linuxの場合はgit, pyenv, minicondaを使っていく
+<https://software.intel.com/en-us/articles/using-intel-distribution-for-python-with-anaconda>
+
+### Linux
 
 1. pyenvをダウンロード
 
@@ -33,11 +35,44 @@ Linuxの場合はgit, pyenv, minicondaを使っていく
     source ~/.bashrc
     ```
 
-1. 好みでpyenv_aliasをインストール
+1. pyenv-virtualenvをインストール
+
+    ```bash
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+    ```
+
+
+1. 好みでpyenv-aliasをインストール
 
     ```bash
     git clone https://github.com/s1341/pyenv-alias.git $(pyenv root)/plugins/pyenv-alias
     ```
+
+    pyenv-aliasのgithubに乗っている例：
+
+    ```bash
+    VERSION_ALIAS="2.7.6_shared" PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 2.7.6
+    ```
+
+#### python
+
+1. pyenvで通常のpythonをインストール
+
+    ```bash
+    pyenv install 3.7.0
+    ```
+
+    エラーが出たら必要なものをインストール
+
+    ```bash
+    # run next line in case of error
+    $ sudo apt install zlib1g-dev libssl-dev libffi-dev
+
+    # run next line to remove warning
+    $ sudo apt install libbz2-dev libreadline-dev libsqlite3-dev
+    ```
+
+#### miniconda
 
 1. インストールできる環境を確認する
 

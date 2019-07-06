@@ -5,7 +5,7 @@
 ```bash
 pip instal mkdocs
 pip install mkdocs-material
-pip install markdown-blockdiag
+# pip install markdown-blockdiag
 ```
 
 下にあるpygmentsなどはmkdocs-materialをインストールすれば勝手に入る
@@ -63,7 +63,7 @@ markdown_extensions:
 import tensorflow as tf
 ```
 
-### markdown-blockdiag
+<!-- ### markdown-blockdiag
 
 ```bash
 pip install markdown-blockdiag
@@ -100,7 +100,7 @@ blockdiag {
     Y -> Z;
     Z -> W;
     Z -> V;
-}
+} -->
 
 ### material
 
@@ -178,7 +178,7 @@ Usage
 
 #### [mermaid](mermaid.md)
 
-```markdown
+````markdown
 
 ```mermaid
 graph TD;
@@ -187,8 +187,8 @@ graph TD;
     A --> C;
     B --> D;
     C --> D;
-
 ```
+````
 
 ```mermaid
 graph TD;
