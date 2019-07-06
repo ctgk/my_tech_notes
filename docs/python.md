@@ -4,8 +4,6 @@
 
 ### Linux
 
-Linuxの場合はgit, pyenv, minicondaを使っていく
-
 1. pyenvをダウンロード
 
     ```bash
@@ -33,11 +31,33 @@ Linuxの場合はgit, pyenv, minicondaを使っていく
     source ~/.bashrc
     ```
 
-1. 好みでpyenv_aliasをインストール
+1. pyenv-virtualenvをインストール
 
     ```bash
-    git clone https://github.com/s1341/pyenv-alias.git $(pyenv root)/plugins/pyenv-alias
+    git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
     ```
+
+#### 通常のpython
+
+1. 必要なものをインストール
+
+    ```bash
+    sudo apt install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev
+    ```
+
+1. インストールできる環境を確認する
+
+    ```bash
+    $ pyenv install -l | grep python
+    ```
+
+1. インストール
+
+    ```bash
+    $ pyenv install 3.7.1
+    ```
+
+#### miniconda
 
 1. インストールできる環境を確認する
 
