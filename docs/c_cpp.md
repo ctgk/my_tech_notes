@@ -1,5 +1,34 @@
 # C/C++
 
+## テスト
+
+### static関数の単体テスト
+
+static関数が定義されているcソースファイルをそのままテストソースにインクルードすると、
+複数のテストソースファイルをコンパイルするときに面倒になる。
+なので、static関数が定義されているcソースファイルをincludeするファイルを一つだけ作って、
+staticがついていない関数でラップする。
+コンパイルするのはラップした関数があるほうだけにすれば、multiple definitionなどで怒られることがなくなる。
+
+<https://blog.wingman-sw.com/archives/450>
+
+```c
+// header
+// include guard
+# include "header_of_original_code.h"
+
+int nonstatic_function_which_was_originally_static(int a);
+```
+
+```c
+// source
+#include "source_of_original_code.c"
+
+int nonstatic_function_which_was_originally_static(int a) {
+    return static_function_you_want_to_test(a);
+}
+```
+
 ## Jupyter Notebook
 
 ```bash
@@ -21,7 +50,7 @@ valgrind --leak-check=full ./a.out
 コンパイルオプション
 
 ```bash
-g++ main.cpp -g3
+g++ main.cpp -g3 -O0
 ```
 
 <!-- ## VSCode + Visual Studio
@@ -133,6 +162,37 @@ g++ main.cpp -g3
     1. 右下の`Add Configuration...`をクリック
     1. `C/C++: (gdb) Bash on Windows Launch`を選択
     1. `launch.json`を編集([参考サイト](http://my-web-site.iobb.net/~yuki/2018-03/soft-tool/wsl-vscode/))
+
+        remote developtmentを使う場合
+
+        ```json
+        {
+            "version": "0.2.0",
+            "configurations": [
+                {
+                    "name": "(gdb) Launch",
+                    "type": "cppdbg",
+                    "request": "launch",
+                    "program": "${workspaceFolder}/a.out",
+                    "args": [],
+                    "stopAtEntry": false,
+                    "cwd": "${workspaceFolder}",
+                    "environment": [],
+                    "externalConsole": false,
+                    "MIMode": "gdb",
+                    "setupCommands": [
+                        {
+                            "description": "Enable pretty-printing for gdb",
+                            "text": "-enable-pretty-printing",
+                            "ignoreFailures": true
+                        }
+                    ]
+                }
+            ]
+        }
+        ```
+
+        remote developtmentなしの場合
 
         ```json hl_lines="8 11 27 28 29"
         {

@@ -15,3 +15,23 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
+
+## How to write
+
+### Link
+
+別のページへのリンク
+
+```markdown
+[リンク](path/to/markdown/file.md)
+```
+
+[リンク](path/to/markdown/file.md)
+
+別ページのセクションへのリンク
+
+```markdown
+[リンク](path/to/markdown/file.md#section)
+```
+
+[リンク](path/to/markdown/file.md#section)

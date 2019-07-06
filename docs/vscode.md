@@ -176,6 +176,8 @@ autohotkeyのスクリプトを編集するときにsyntaxを見やすくする�
 
 ### C/C++
 
+[こっち](c_cpp.md#vscode_wsl)を参照
+
 c_cpp_properties.jsonをプロジェクト毎に作るのが面倒
 
 ### CMake

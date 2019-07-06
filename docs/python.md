@@ -2,6 +2,10 @@
 
 ## インストール
 
+### intelpython
+
+<https://software.intel.com/en-us/articles/using-intel-distribution-for-python-with-anaconda>
+
 ### Linux
 
 1. pyenvをダウンロード
