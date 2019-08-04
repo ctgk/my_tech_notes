@@ -1,5 +1,24 @@
 # C/C++
 
+## プロジェクト
+
+ディレクトリ構成などの参考に
+
+<https://medium.com/heuristics/c-application-development-part-1-project-structure-454b00f9eddc>
+
+## ドキュメント
+
+Doxygen
+
+<https://kezunlin.me/post/917a155d/>
+<https://qiita.com/t-kashima/items/a0ae4929ca8b5728d5bc>
+
+インストール
+
+```bash
+sudo apt install doxygen graphviz
+```
+
 ## テスト
 
 ### static関数の単体テスト
