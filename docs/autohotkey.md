@@ -121,10 +121,10 @@ vk1D & l::send_key("^l","^{Del}")
 ;ctrl + alt + o : 右クリック
 ;----------------------------------------------------------------
 
-^!j::MouseMove,   0,  10, 0, R
-^!k::MouseMove,   0, -10, 0, R
-^!h::MouseMove, -10,   0, 0, R
-^!l::MouseMove,  10,   0, 0, R
+^!j::MouseMove,    0,  100, 0, R
+^!k::MouseMove,    0, -100, 0, R
+^!h::MouseMove, -100,    0, 0, R
+^!l::MouseMove,  100,    0, 0, R
 ^!u::send,{LButton}
 ^!o::send,{RButton}
 

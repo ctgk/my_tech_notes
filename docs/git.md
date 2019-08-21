@@ -39,3 +39,32 @@ vscodeのworkingspace用設定フォルダをgit管理からのぞく
 # .gitignore_global
 .vscode/
 ```
+
+## hook
+
+```bash
+$ cd new/git/dir
+$ git init
+$ cd .git/hooks
+$ mv pre-commit.sample pre-commit
+$ cd new/git/dir
+$ echo -e "\n\n\n" > file  # make a file with multiple empty lines at the bottom
+$ git add file; git commit -m "file"
+# sample pre-commit script fails
+```
+
+## まとめ
+
+`.gitconfig`
+
+```bash
+[user]
+    name = ctgk
+    email = r1135nj54w@gmail.com
+[core]
+    editor = vim -c \"set fenc=utf-8\"
+    excludesfile = /home/ctgk/.gitignore_global
+[alias]
+    graph = log --graph --decorate -C -M --pretty=format:\"%C(yellow)%h%Creset %ad [%an] %C(auto)%d%Creset %s\" --all --date=short
+    graph-with-stash = !git log --graph --decorate -C -M --pretty=format:\"%C(yellow)%h%Creset %ad [%an] %C(auto)%d%Creset %s\" --all --date=short `git reflog show --format=\"%h\" stash`
+```

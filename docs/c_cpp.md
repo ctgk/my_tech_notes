@@ -19,7 +19,32 @@ Doxygen
 sudo apt install doxygen graphviz
 ```
 
+## フォーマット
+
+インストール
+
+```bash
+sudo apt install clang-format
+```
+
+Visual Studio Code の `settings.json`で
+
+```
+"C_Cpp.clang_format_style": "file"
+```
+
+と設定すれば、`.clang-format`に記載した設定が適用されるようになる。
+
+参考
+
+<http://shinriyo.hateblo.jp/entry/2015/05/11/.clang-format%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9>
+
 ## テスト
+
+### ライブラリ
+
+- `CppUTest` <https://cpputest.github.io/mocking_manual.html>
+- `Google Test`
 
 ### static関数の単体テスト
 
