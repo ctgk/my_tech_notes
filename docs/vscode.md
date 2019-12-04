@@ -177,9 +177,40 @@ autohotkeyのスクリプトを編集するときにsyntaxを見やすくする�
 
 ### C/C++
 
-[こっち](c_cpp.md#vscode_wsl)を参照
+`Remote Development`なしでWSL上でのC/C++環境をセットアップする場合は[こっち](c_cpp.md#vscode_wsl)を参照
 
-c_cpp_properties.jsonをプロジェクト毎に作るのが面倒
+#### snippet
+
+インクルードガード用のスニペット
+
+```json
+{
+	// Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Insert include guard": {
+		"prefix": ["#ifndef"],
+		"body": [
+			"#ifndef ${2/(.*)/${1:/upcase}/}",
+			"#define ${2/(.*)/${1:/upcase}/}",
+			"",
+			"#endif // ${2/(.*)/${1:/upcase}/}"
+		],
+		"description": "insert classic style include gurad"
+	}
+}
+```
 
 ### CMake
 
