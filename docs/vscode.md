@@ -9,8 +9,9 @@ VS Codeの個人的設定
 ```json
 // settings.json
 {
-    // "editor.fontSize": 12, // 画面に合わせて調整
-    "editor.hideCursorInOverviewRuler": true, // ?
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    // "editor.fontSize": 13, // 画面に合わせて要調整
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true, // ブロックの始まりから終わりまで線を引く
     "editor.renderWhitespace": "boundary", // 単語間の単一スペース以外の空白を可視化
@@ -25,8 +26,8 @@ VS Codeの個人的設定
     "files.trimTrailingWhitespace": true,
 
     "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\wsl.exe", // Windowsでwslをつかうなら
+    "terminal.integrated.cursorStyle": "line",
 
-    "window.zoomLevel": 0,
     "workbench.editor.enablePreview": false,
 }
 ```
