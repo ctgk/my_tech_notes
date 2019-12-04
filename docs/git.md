@@ -67,4 +67,5 @@ $ git add file; git commit -m "file"
 [alias]
     graph = log --graph --decorate -C -M --pretty=format:\"%C(yellow)%h%Creset %ad [%an] %C(auto)%d%Creset %s\" --all --date=short
     graph-with-stash = !git log --graph --decorate -C -M --pretty=format:\"%C(yellow)%h%Creset %ad [%an] %C(auto)%d%Creset %s\" --all --date=short `git reflog show --format=\"%h\" stash`
+    top = rev-parse --show-toplevel
 ```
