@@ -11,11 +11,12 @@ VS Codeの個人的設定
 {
     "editor.acceptSuggestionOnCommitCharacter": false,
     "editor.acceptSuggestionOnEnter": "off",
-    // "editor.fontSize": 13, // 画面に合わせて要調整
+    // "editor.fontSize": 13,
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": true, // ブロックの始まりから終わりまで線を引く
-    "editor.renderWhitespace": "boundary", // 単語間の単一スペース以外の空白を可視化
+    "editor.renderWhitespace": "boundary",
     "editor.rulers": [80],
+    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
     "editor.wordWrap": "on",
 
     "extensions.autoUpdate": false,
