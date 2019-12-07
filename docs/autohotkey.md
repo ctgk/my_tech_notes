@@ -26,11 +26,14 @@
 ;----------------------------------------------------------------
 is_terminal_window()
 {
-	;gvim
-	; IfWinActive,ahk_class VirtualConsoleClass
-	; {
-	; 	return 1
-	; }
+	IfWinActive, ahk_exe Hyper.exe
+	{
+		return 1
+	}
+	IfWinActive, ahk_exe ubuntu1804.exe
+	{
+		return 1
+	}
 	IfWinActive,ahk_exe ConEmu64.exe
 	{
 		return 1
@@ -68,7 +71,7 @@ send_key(original_key,replace_key)
 ; \ -> _
 ; 変換 -> ctrl
 ;================================================================
-SC073::_
+sc073::Send, _
 vk1C::Control
 
 ;================================================================
@@ -93,12 +96,12 @@ vk1D & a::send,{Blind}{Home}
 vk1D & e::send,{Blind}{End}
 
 ;----------------------------------------------------------------
-;編集系
+;Editing
 ;無変換 + h : BackSpace
 ;無変換 + d : Delete
 ;無変換 + m : Enter
-;無変換 + k : カーソルから行末まで削除
-;無変換 + u : カーソかから行頭まで削除
+;無変換 + k : delete from here to the end of the line
+;無変換 + u : delete from here to the start of the line
 ;無変換 + w : delete word left
 ;無変換 + l : delete word right
 ;----------------------------------------------------------------
@@ -109,38 +112,26 @@ vk1D & m::send,{Return}
 vk1D & k::send_key("^k","+{End}{Del}")
 vk1D & u::send_key("^u","+{Home}{BS}")
 vk1D & w::send_key("^w","^{BS}")
-vk1D & l::send_key("^l","^{Del}")
+vk1D & l::send,^{Del}
 
 ;----------------------------------------------------------------
-;マウス系
-;ctrl + alt + h : マウス左移動
-;ctrl + alt + j : マウス下移動
-;ctrl + alt + k : マウス上移動
-;ctrl + alt + l : マウス右移動
-;ctrl + alt + u : 左クリック
-;ctrl + alt + o : 右クリック
+;Mouse moves
+;ctrl + alt + a : Move mouse to the center of the screen
+;ctrl + alt + h : Move mouse 100pix left
+;ctrl + alt + j : Move mouse 100pix down
+;ctrl + alt + k : Move mouse 100pix up
+;ctrl + alt + l : Move mouse 100pix right
+;ctrl + alt + u : Left click
+;ctrl + alt + o : Right click
 ;----------------------------------------------------------------
-
+CoordMode, Mouse, Screen
+^!a::MouseMove, (A_ScreenWidth // 2), (A_ScreenHeight // 2)
 ^!j::MouseMove,    0,  100, 0, R
 ^!k::MouseMove,    0, -100, 0, R
 ^!h::MouseMove, -100,    0, 0, R
 ^!l::MouseMove,  100,    0, 0, R
 ^!u::send,{LButton}
 ^!o::send,{RButton}
-
-;----------------------------------------------------------------
-;自動リロード保存
-;----------------------------------------------------------------
-
-; #IfWinActive, ahk_exe Code.exe
-
-; ~^s::
-;     ScriptName := "windows10.ahk"
-;     IfWinActive, %ScriptName%
-;     {
-;         Reload
-;     }
-; return
 ```
 
 1. 上記をwindows10.ahkとして保存
