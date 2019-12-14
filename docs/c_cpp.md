@@ -1,43 +1,50 @@
 # C/C++
 
-## プロジェクト
+## Project structure
 
-ディレクトリ構成などの参考に
+reference: <https://medium.com/heuristics/c-application-development-part-1-project-structure-454b00f9eddc>
 
-<https://medium.com/heuristics/c-application-development-part-1-project-structure-454b00f9eddc>
+## Doxygen
 
-## ドキュメント
-
-Doxygen
-
-<https://kezunlin.me/post/917a155d/>
-<https://qiita.com/t-kashima/items/a0ae4929ca8b5728d5bc>
-
-インストール
+Documentation tool
 
 ```bash
 sudo apt install doxygen graphviz
 ```
 
-## フォーマット
+<https://kezunlin.me/post/917a155d/>
+<https://qiita.com/t-kashima/items/a0ae4929ca8b5728d5bc>
 
-インストール
+## clang-format
+
+Formatting tool
 
 ```bash
 sudo apt install clang-format
 ```
 
-Visual Studio Code の `settings.json`で
+Visual Studio Code uses config defined in `.clang-format` if you add the following line in `settings.json`.
 
+```json
+    "C_Cpp.clang_format_style": "file"
 ```
-"C_Cpp.clang_format_style": "file"
-```
-
-と設定すれば、`.clang-format`に記載した設定が適用されるようになる。
-
-参考
 
 <http://shinriyo.hateblo.jp/entry/2015/05/11/.clang-format%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9>
+
+<https://zed0.co.uk/clang-format-configurator/>
+
+## clang-tidy
+
+Linter
+
+```bash
+sudo apt install clang-tidy
+```
+
+```bash
+# dump configuration to standard output
+clang-tidy -dump-config
+```
 
 ## テスト
 
