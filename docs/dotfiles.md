@@ -2,7 +2,7 @@
 
 ## .bashrc
 
-```sh
+```bash
 CH_BOLD='\[\e[1m\]'
 
 CH_NONE='\[\e[0m\]'
@@ -41,8 +41,8 @@ colored_host="${CH_CYAN}\h${CH_DEFAULT}"
 colored_path="${CH_GREEN}\w${CH_DEFAULT}"
 colored_OK="${CH_BLUE}✓${CH_DEFAULT}"
 colored_NG="${CH_RED}✘${CH_DEFAULT}"
-exit_status="\$( [ \$? == 0 ] && echo \"${colored_OK}\" || echo \"${colored_NG}\" )"
-PS1_1stline="┌─[${exit_status}]─[${colored_user}@${colored_host}]─[${colored_path}]"
+exit_status="\$( [ \$? == 0 ] && echo '' || echo \"[${colored_NG}]─\" )"
+PS1_1stline="┌─${exit_status}[${colored_user}@${colored_host}]─[${colored_path}]"
 PS1_2ndline="└─[\t]"
 gitbranch="\$( git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/─[\1]/')"
 export PS1="\n${PS1_1stline}\n${PS1_2ndline}${gitbranch} \$ "
@@ -66,12 +66,16 @@ export DISPLAY=:0
 
 export PATH="$HOME/local/bin:$PATH"
 export PKG_CONFIG_PATH="$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+if type "fish" > /dev/null; then
+    exec fish
+fi
 ```
 
-Promptは以下のように表示される
+The prompt should look something like these:
 
 ```terminal
-┌─[✓]─[user@hostname]─[~/.../current/working/directory/path]
+┌─[user@hostname]─[~/.../current/working/directory/path]
 └─[21:51:05]─[branch] $
 
 ┌─[✘]─[user@hostname]─[~]
