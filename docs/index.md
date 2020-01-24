@@ -1,37 +1,10 @@
-# Welcome to MkDocs
+# Welcome to My Tech Notes
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+This site is a collection of my technical notes.
 
-## Commands
+!!! Attention
+    Some of the notes may contain false information or may not up to date.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
+## Github Repository
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## How to write
-
-### Link
-
-別のページへのリンク
-
-```markdown
-[リンク](path/to/markdown/file.md)
-```
-
-[リンク](path/to/markdown/file.md)
-
-別ページのセクションへのリンク
-
-```markdown
-[リンク](path/to/markdown/file.md#section)
-```
-
-[リンク](path/to/markdown/file.md#section)
+<https://github.com/ctgk/my_tech_notes>
