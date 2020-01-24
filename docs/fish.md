@@ -5,7 +5,7 @@ friendly interactive shell
 ## Install
 
 ```bash
-$ sudo add-apt-repository ppa:fish-shell/release-2
+$ sudo add-apt-repository ppa:fish-shell/release-3
 $ sudo apt update
 $ sudo apt install fish
 ```
@@ -37,12 +37,26 @@ A package manager for the fish shell.
 
 ### Install
 
-```bash
+```fish
 $ curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 ```
 
 ### Usage
 
-```bash
-$ fisher add hasanozgan/theme-lambda
+#### Refresh
+
+```fish
+$ fisher
+```
+
+#### Install a plugin
+
+```fish
+$ fisher add oh-my-fish/theme-bobthefish
+```
+
+#### Uninstall a plugin
+
+```fish
+$ fisher rm oh-my-fish/theme/bobthefish
 ```
