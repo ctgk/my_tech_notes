@@ -1,5 +1,5 @@
-# mynotes
+# My Tech Notes
 
 My technical notes
 
-<https://ctgk.github.io/mynotes/>
+<https://ctgk.github.io/my_tech_notes/>
