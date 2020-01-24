@@ -60,3 +60,7 @@ $ fisher add oh-my-fish/theme-bobthefish
 ```fish
 $ fisher rm oh-my-fish/theme/bobthefish
 ```
+
+## Autosuggestion
+
+- <https://medium.com/@fabioantunes/a-guide-for-fish-shell-completions-485ac04ac63c>
