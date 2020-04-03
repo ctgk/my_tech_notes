@@ -56,21 +56,23 @@ Use relative path from the current file path.
 Example:
 
 ```markdown
-[pagelink](mkdocs.md)
+<!-- write relative path -->
+[pagelink](getting_started.md)
 ```
 
 Result:
 
-[pagelink](mkdocs.md)
+[pagelink](getting_started.md)
 
 ### Link to a section
 
 Example:
 
 ```markdown
-[sectionlink](mkdocs.md#Link_to_a_section)
+<!-- write relative path -->
+[sectionlink](getting_started.md#Link_to_a_section)
 ```
 
 Result:
 
-[sectionlink](mkdocs.md#Link_to_a_section)
+[sectionlink](getting_started.md#Link_to_a_section)
