@@ -132,7 +132,7 @@ Usage
 キー一覧などの詳細：
 <https://facelessuser.github.io/pymdown-extensions/extensions/keys/>
 
-#### [mermaid](mermaid.md)
+#### [mermaid](../../mermaid.md)
 
 ````markdown
 

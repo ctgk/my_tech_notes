@@ -1,5 +1,7 @@
 # mermaid
 
+## Using mermaid in MkDocs
+
 ```javascript
 extra_css:
     - https://unpkg.com/mermaid@8.0.0/dist/mermaid.css
