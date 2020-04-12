@@ -154,7 +154,7 @@ K_n = {1\over P_n(0, 0) + \sigma_x^2}\left(\begin{array}{c}
 \end{array}\right).
 $$
 
-Note that update rule of the first element of $\mu_n$ is just an interpolation of predicted value and observed value, which is indentical with [the filtering of scalar $\mu_n$](kalman.md#Scalar). Also the the first element of $P_n$.
+Note that update rule of the first element of $\mu_n$ is just an interpolation of predicted value and observed value, which is indentical with [the filtering of scalar $\mu_n$](kalman.md#scalar). Also the the first element of $P_n$.
 
 ### Classical Mechanics (2)
 

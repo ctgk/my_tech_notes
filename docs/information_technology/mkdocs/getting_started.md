@@ -75,4 +75,4 @@ Example:
 
 Result:
 
-[sectionlink](getting_started.md#Link_to_a_section)
+[sectionlink](getting_started.md#link_to_a_section)
