@@ -36,7 +36,7 @@
     
     
       
-        <title>Recursive Bayesian Estimation - My Tech Notes</title>
+        <title>Kalman Filter - My Tech Notes</title>
       
     
     
@@ -79,7 +79,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#recursive_bayesian_estimation" tabindex="1" class="md-skip">
+      <a href="#kalman_filter" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -105,7 +105,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                Recursive Bayesian Estimation
+                Kalman Filter
               
             </span>
           
@@ -172,7 +172,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../kalman/" class="md-tabs__link md-tabs__link--active">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           Academic
         </a>
       
@@ -253,18 +253,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../kalman/" title="Kalman Filter" class="md-nav__link">
-      Kalman Filter
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -276,11 +264,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Recursive Bayesian Estimation
+        Kalman Filter
       </label>
     
-    <a href="./" title="Recursive Bayesian Estimation" class="md-nav__link md-nav__link--active">
-      Recursive Bayesian Estimation
+    <a href="./" title="Kalman Filter" class="md-nav__link md-nav__link--active">
+      Kalman Filter
     </a>
     
       
@@ -292,13 +280,6 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#hidden_markov_model" class="md-nav__link">
-    Hidden Markov Model
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#prediction" class="md-nav__link">
@@ -315,9 +296,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#smoothing" class="md-nav__link">
-    Smoothing
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scalar" class="md-nav__link">
+    Scalar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical_mechanics" class="md-nav__link">
+    Classical Mechanics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical_mechanics_2" class="md-nav__link">
+    Classical Mechanics (2)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -329,6 +337,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../recursive_bayesian_estimation/" title="Recursive Bayesian Estimation" class="md-nav__link">
+      Recursive Bayesian Estimation
+    </a>
   </li>
 
         
@@ -850,13 +870,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hidden_markov_model" class="md-nav__link">
-    Hidden Markov Model
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#prediction" class="md-nav__link">
     Prediction
   </a>
@@ -871,9 +884,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#smoothing" class="md-nav__link">
-    Smoothing
+  <a href="#example" class="md-nav__link">
+    Example
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scalar" class="md-nav__link">
+    Scalar
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical_mechanics" class="md-nav__link">
+    Classical Mechanics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classical_mechanics_2" class="md-nav__link">
+    Classical Mechanics (2)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -894,86 +934,417 @@
               
                 
                 
-                <h1 id="recursive_bayesian_estimation">Recursive Bayesian Estimation</h1>
-<h2 id="hidden_markov_model">Hidden Markov Model</h2>
-<p>Hidden Markov model (HMM):</p>
+                <h1 id="kalman_filter">Kalman Filter</h1>
+<p>The model of Kalman filter with fixed system and measurement model:</p>
 <div>
 <div class="MathJax_Preview">
-p(x_n) = p(x_n|z_n) \left(\prod_{i=1}^n p(z_i|z_{i-1})\right) p(z_0),
+\begin{aligned}
+p(x_n) &amp;= p(x_n|z_n) \left(\prod_{i=1}^n p(z_i|z_{i-1})\right)p(z_0)\\
+&amp;= \mathcal{N}(x_n|Az_n, \Sigma)
+    \left(\prod_{i=1}^n \mathcal{N}(z_n|Az_{n-1},\Gamma)\right)
+    \mathcal{N}(z_0|\mu_0,P_0).
+\end{aligned}
 </div>
 <script type="math/tex; mode=display">
-p(x_n) = p(x_n|z_n) \left(\prod_{i=1}^n p(z_i|z_{i-1})\right) p(z_0),
+\begin{aligned}
+p(x_n) &= p(x_n|z_n) \left(\prod_{i=1}^n p(z_i|z_{i-1})\right)p(z_0)\\
+&= \mathcal{N}(x_n|Az_n, \Sigma)
+    \left(\prod_{i=1}^n \mathcal{N}(z_n|Az_{n-1},\Gamma)\right)
+    \mathcal{N}(z_0|\mu_0,P_0).
+\end{aligned}
 </script>
 </div>
 <table>
 <thead>
 <tr>
-<th>Notation</th>
-<th>Description</th>
+<th align="center">Notations</th>
+<th>Descriptions</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><span><span class="MathJax_Preview">z_0</span><script type="math/tex">z_0</script></span></td>
-<td>Initial hidden random variable.</td>
+<td align="center"><span><span class="MathJax_Preview">\mathcal{N}</span><script type="math/tex">\mathcal{N}</script></span></td>
+<td>Gaussian distribution of a random variable parameterized by mean and covariance.</td>
 </tr>
 <tr>
-<td><span><span class="MathJax_Preview">z_n</span><script type="math/tex">z_n</script></span></td>
-<td>Hidden random variable at step <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>.</td>
+<td align="center"><span><span class="MathJax_Preview">z_n</span><script type="math/tex">z_n</script></span></td>
+<td>Random variable of internal state.</td>
 </tr>
 <tr>
-<td><span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span></td>
-<td>Observed random variable at step <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>.</td>
+<td align="center"><span><span class="MathJax_Preview">\mu_n</span><script type="math/tex">\mu_n</script></span></td>
+<td>Mean parameter of internal state.</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">P_n</span><script type="math/tex">P_n</script></span></td>
+<td>Covariance parameter of internal state.</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span></td>
+<td>System matrix.</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">\Gamma</span><script type="math/tex">\Gamma</script></span></td>
+<td>Covariance matrix of system noise.</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span></td>
+<td>Random variable of observation.</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span></td>
+<td>Measurement matrix.</td>
+</tr>
+<tr>
+<td align="center"><span><span class="MathJax_Preview">\Sigma</span><script type="math/tex">\Sigma</script></span></td>
+<td>Covariance matrix of measurement noise.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="prediction">Prediction</h2>
-<p>Estimating hidden random variable <span><span class="MathJax_Preview">z_n</span><script type="math/tex">z_n</script></span> given a probablity distribution of previous hidden random variable <span><span class="MathJax_Preview">z_{n-1}</span><script type="math/tex">z_{n-1}</script></span>.</p>
+<p>Given the distribution of <span><span class="MathJax_Preview">z_{n-1}</span><script type="math/tex">z_{n-1}</script></span>,</p>
 <div>
 <div class="MathJax_Preview">
-p(z_n|...) = \int p(z_n|z_{n-1})p(z_{n-1}|...) {\rm d}z_{n-1}
+p(z_{n-1}|...) = \mathcal{N}(z_{n-1}|\mu_{n-1}, P_{n-1}),
 </div>
 <script type="math/tex; mode=display">
-p(z_n|...) = \int p(z_n|z_{n-1})p(z_{n-1}|...) {\rm d}z_{n-1}
+p(z_{n-1}|...) = \mathcal{N}(z_{n-1}|\mu_{n-1}, P_{n-1}),
+</script>
+</div>
+<p>the distribution of next internal state is</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+p(z_n|...) &amp;= \int p(z_n|z_{n-1})p(z_{n-1}|...){\rm d}z_{n-1}\\
+&amp;= \mathcal{N}(z_n|A\mu_{n-1}, AP_{n-1}A^{\top}+\Gamma).
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+p(z_n|...) &= \int p(z_n|z_{n-1})p(z_{n-1}|...){\rm d}z_{n-1}\\
+&= \mathcal{N}(z_n|A\mu_{n-1}, AP_{n-1}A^{\top}+\Gamma).
+\end{aligned}
 </script>
 </div>
 <h2 id="filtering">Filtering</h2>
-<p>Updating estimation of a hidden random variable <span><span class="MathJax_Preview">z_n</span><script type="math/tex">z_n</script></span> given a corresponding observation <span><span class="MathJax_Preview">x_n=X_n</span><script type="math/tex">x_n=X_n</script></span>.</p>
+<p>Given the distribution of <span><span class="MathJax_Preview">z_n</span><script type="math/tex">z_n</script></span>,</p>
 <div>
 <div class="MathJax_Preview">
-p(z_n|x_n=X_n, ...) \propto p(x_n=X_n|z_n)p(z_n | ...)
+p(z_n|...) = \mathcal{N}(z_n|\mu_n, P_n),
 </div>
 <script type="math/tex; mode=display">
-p(z_n|x_n=X_n, ...) \propto p(x_n=X_n|z_n)p(z_n | ...)
+p(z_n|...) = \mathcal{N}(z_n|\mu_n, P_n),
 </script>
 </div>
-<h2 id="smoothing">Smoothing</h2>
-<p>Updating estimation of hidden random variables <span><span class="MathJax_Preview">\{z_n\}_{n=0}^N</span><script type="math/tex">\{z_n\}_{n=0}^N</script></span>
-given an entire observation sequence <span><span class="MathJax_Preview">\{x_n\}_{n=0}^N</span><script type="math/tex">\{x_n\}_{n=0}^N</script></span>.</p>
+<p>and a new observation <span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span>, the posterior distribution of <span><span class="MathJax_Preview">z_n</span><script type="math/tex">z_n</script></span> is</p>
 <div>
 <div class="MathJax_Preview">
 \begin{aligned}
-    p(z_n|x_1,...,x_N) &amp;= \int p(z_n, z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &amp;= \int p(z_n|z_{n+1}, x_1,...,x_N) p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &amp;= \int p(z_n|z_{n+1}, x_1,...,x_n) p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &amp;= \int \frac{p(z_{n+1}|z_n)p(z_n|x_1,...,x_n)}
-    {p(z_{n+1}|x_1,...,x_n)} p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &amp;= p(z_n|x_1,...,x_n) \int
-    \frac{p(z_{n+1}|x_1,...,x_N) p(z_{n+1}|z_n)}{p(z_{n+1}|x_1,...,x_n)}
-    {\rm d}z_{n+1}
+p(z_n|x_n, ...) &amp;\propto p(x_n|z_n)p(z_n|...)\\
+&amp;= \mathcal{N}(z_n|\mu_n + K_n(x_n - C\mu_n), (I - K_nC)P_n),
 \end{aligned}
 </div>
 <script type="math/tex; mode=display">
 \begin{aligned}
-    p(z_n|x_1,...,x_N) &= \int p(z_n, z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &= \int p(z_n|z_{n+1}, x_1,...,x_N) p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &= \int p(z_n|z_{n+1}, x_1,...,x_n) p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &= \int \frac{p(z_{n+1}|z_n)p(z_n|x_1,...,x_n)}
-    {p(z_{n+1}|x_1,...,x_n)} p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
-    &= p(z_n|x_1,...,x_n) \int
-    \frac{p(z_{n+1}|x_1,...,x_N) p(z_{n+1}|z_n)}{p(z_{n+1}|x_1,...,x_n)}
-    {\rm d}z_{n+1}
+p(z_n|x_n, ...) &\propto p(x_n|z_n)p(z_n|...)\\
+&= \mathcal{N}(z_n|\mu_n + K_n(x_n - C\mu_n), (I - K_nC)P_n),
 \end{aligned}
+</script>
+</div>
+<p>where Kalman gain matrix <span><span class="MathJax_Preview">K_n</span><script type="math/tex">K_n</script></span> is</p>
+<div>
+<div class="MathJax_Preview">
+K_n = P_nC^\top(CP_nC^\top + \Sigma)^{-1}.
+</div>
+<script type="math/tex; mode=display">
+K_n = P_nC^\top(CP_nC^\top + \Sigma)^{-1}.
+</script>
+</div>
+<h2 id="example">Example</h2>
+<h3 id="scalar">Scalar</h3>
+<p>Let <span><span class="MathJax_Preview">A = 1</span><script type="math/tex">A = 1</script></span>, <span><span class="MathJax_Preview">C=1</span><script type="math/tex">C=1</script></span>, prediction step and filtering step will be,</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+    {\rm Prediction} &amp; \begin{cases}
+        \mu_n &amp;\leftarrow \mu_{n-1}\\
+        P_n &amp;\leftarrow P_{n-1} + \Gamma &amp; \text{(Sum)}
+    \end{cases}\\
+    {\rm Filtering~} &amp; \begin{cases}
+        \mu_n \leftarrow \frac{\Sigma\mu_n + P_nx_n}{P_n + \Sigma} &amp; \text{(Interpolation)}\\
+        P_n \leftarrow \frac{P_n\Sigma}{P_n + \Sigma} &amp; \text{(Harmonic sum)}.
+    \end{cases}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    {\rm Prediction} & \begin{cases}
+        \mu_n &\leftarrow \mu_{n-1}\\
+        P_n &\leftarrow P_{n-1} + \Gamma & \text{(Sum)}
+    \end{cases}\\
+    {\rm Filtering~} & \begin{cases}
+        \mu_n \leftarrow \frac{\Sigma\mu_n + P_nx_n}{P_n + \Sigma} & \text{(Interpolation)}\\
+        P_n \leftarrow \frac{P_n\Sigma}{P_n + \Sigma} & \text{(Harmonic sum)}.
+    \end{cases}
+\end{aligned}
+</script>
+</div>
+<h3 id="classical_mechanics">Classical Mechanics</h3>
+<p>Let the time update of position <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> and velocity <span><span class="MathJax_Preview">{\dot r}</span><script type="math/tex">{\dot r}</script></span> be</p>
+<div>
+<div class="MathJax_Preview">
+\begin{cases}
+    r_n &amp;\leftarrow r_{n-1} + {\dot r}_{n-1}\Delta t + {1\over2}{\ddot r}(\Delta t)^2\\
+    {\dot r}_{n} &amp;\leftarrow {\dot r}_{n-1} + {\ddot r}\Delta t.
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+\begin{cases}
+    r_n &\leftarrow r_{n-1} + {\dot r}_{n-1}\Delta t + {1\over2}{\ddot r}(\Delta t)^2\\
+    {\dot r}_{n} &\leftarrow {\dot r}_{n-1} + {\ddot r}\Delta t.
+\end{cases}
+</script>
+</div>
+<p>Let our internal state be</p>
+<div>
+<div class="MathJax_Preview">
+\mu_n = \left(\begin{array}{c}
+    r_n\\
+    {\dot r}_n
+\end{array}\right),
+</div>
+<script type="math/tex; mode=display">
+\mu_n = \left(\begin{array}{c}
+    r_n\\
+    {\dot r}_n
+\end{array}\right),
+</script>
+</div>
+<p>then the prediction step is</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+\mu_n &amp;\leftarrow \left(\begin{array}{cc}1 &amp; \Delta t\\ 0 &amp; 1\end{array}\right)\mu_{n-1}\\
+P_n &amp;\leftarrow \left(\begin{array}{cc}1&amp;\Delta t\\0&amp;1\end{array}\right)
+    P_{n-1} \left(\begin{array}{cc}1&amp;0\\\Delta t&amp;1\end{array}\right)
+    + \left(\begin{array}{c}{1\over2}(\Delta t)^2\\\Delta t\end{array}\right)
+    \left(\begin{array}{cc}{1\over2}(\Delta t)^2 &amp; \Delta t\end{array}\right)
+    {\ddot r}^2\\
+    &amp;= \left(\begin{array}{cc}1&amp;\Delta t\\0&amp;1\end{array}\right)
+    P_{n-1} \left(\begin{array}{cc}1&amp;0\\\Delta t&amp;1\end{array}\right)
+    + \left(\begin{array}{cc}
+        {1\over4}(\Delta t)^4 &amp; {1\over2}(\Delta t)^3\\
+        {1\over2}(\Delta t)^3 &amp; (\Delta t)^2
+    \end{array}\right) {\ddot r}^2.
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_n &\leftarrow \left(\begin{array}{cc}1 & \Delta t\\ 0 & 1\end{array}\right)\mu_{n-1}\\
+P_n &\leftarrow \left(\begin{array}{cc}1&\Delta t\\0&1\end{array}\right)
+    P_{n-1} \left(\begin{array}{cc}1&0\\\Delta t&1\end{array}\right)
+    + \left(\begin{array}{c}{1\over2}(\Delta t)^2\\\Delta t\end{array}\right)
+    \left(\begin{array}{cc}{1\over2}(\Delta t)^2 & \Delta t\end{array}\right)
+    {\ddot r}^2\\
+    &= \left(\begin{array}{cc}1&\Delta t\\0&1\end{array}\right)
+    P_{n-1} \left(\begin{array}{cc}1&0\\\Delta t&1\end{array}\right)
+    + \left(\begin{array}{cc}
+        {1\over4}(\Delta t)^4 & {1\over2}(\Delta t)^3\\
+        {1\over2}(\Delta t)^3 & (\Delta t)^2
+    \end{array}\right) {\ddot r}^2.
+\end{aligned}
+</script>
+</div>
+<p>Let us observe position <span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span> with measurement noise <span><span class="MathJax_Preview">\sigma_x^2</span><script type="math/tex">\sigma_x^2</script></span>, the filtering step is</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+\mu_n &amp;\leftarrow \mu_n + K_n(x_n - r_n)\\
+    &amp;= \left(\begin{array}{c}
+    \frac{\sigma_x^2r_n + P_n(0, 0)x_n}{P_n(0, 0) + \sigma_x^2}\\
+    {\dot r}_n + \frac{P_n(1, 0)}{P_n(0, 0) + \sigma_x^2}(x_n - r_n)
+    \end{array}\right)\\
+P_n &amp;\leftarrow P_n
+    - P_n \left(\begin{array}{c}1\\0\end{array}\right)
+    \frac{1}{P_n(0,0) + \sigma_x^2}
+    (\begin{array}{cc} 1 &amp; 0\end{array})P_n\\
+    &amp;= P_n - \frac{1}{P_n(0,0) + \sigma_x^2}\left(\begin{array}{cc}
+        P_n(0,0) P_n(0,0) &amp; P_n(0,0) P_n(0,1)\\
+        P_n(0,0) P_n(1,0) &amp; P_n(0,1) P_n(1,0)
+    \end{array}\right)\\
+    &amp;= \frac{1}{P_n(0,0) + \sigma_x^2}\left(\begin{array}{cc}
+        P_n(0,0)\sigma_x^2 &amp; P_n(0,1)\sigma_x^2\\
+        P_n(1,0)\sigma_x^2 &amp; P_n(0,0)P_n(1,1) + P_n(1,1)\sigma_x^2 - P_n(0,1)P_n(1,0)
+    \end{array}\right),
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mu_n &\leftarrow \mu_n + K_n(x_n - r_n)\\
+    &= \left(\begin{array}{c}
+    \frac{\sigma_x^2r_n + P_n(0, 0)x_n}{P_n(0, 0) + \sigma_x^2}\\
+    {\dot r}_n + \frac{P_n(1, 0)}{P_n(0, 0) + \sigma_x^2}(x_n - r_n)
+    \end{array}\right)\\
+P_n &\leftarrow P_n
+    - P_n \left(\begin{array}{c}1\\0\end{array}\right)
+    \frac{1}{P_n(0,0) + \sigma_x^2}
+    (\begin{array}{cc} 1 & 0\end{array})P_n\\
+    &= P_n - \frac{1}{P_n(0,0) + \sigma_x^2}\left(\begin{array}{cc}
+        P_n(0,0) P_n(0,0) & P_n(0,0) P_n(0,1)\\
+        P_n(0,0) P_n(1,0) & P_n(0,1) P_n(1,0)
+    \end{array}\right)\\
+    &= \frac{1}{P_n(0,0) + \sigma_x^2}\left(\begin{array}{cc}
+        P_n(0,0)\sigma_x^2 & P_n(0,1)\sigma_x^2\\
+        P_n(1,0)\sigma_x^2 & P_n(0,0)P_n(1,1) + P_n(1,1)\sigma_x^2 - P_n(0,1)P_n(1,0)
+    \end{array}\right),
+\end{aligned}
+</script>
+</div>
+<p>where Kalman gain <span><span class="MathJax_Preview">K_n</span><script type="math/tex">K_n</script></span> is</p>
+<div>
+<div class="MathJax_Preview">
+K_n = {1\over P_n(0, 0) + \sigma_x^2}\left(\begin{array}{c}
+    P_n(0, 0)\\
+    P_n(1, 0)
+\end{array}\right).
+</div>
+<script type="math/tex; mode=display">
+K_n = {1\over P_n(0, 0) + \sigma_x^2}\left(\begin{array}{c}
+    P_n(0, 0)\\
+    P_n(1, 0)
+\end{array}\right).
+</script>
+</div>
+<p>Note that update rule of the first element of <span><span class="MathJax_Preview">\mu_n</span><script type="math/tex">\mu_n</script></span> is just an interpolation of predicted value and observed value, which is indentical with <a href="./#Scalar">the filtering of scalar <span><span class="MathJax_Preview">\mu_n</span><script type="math/tex">\mu_n</script></span></a>. Also the the first element of <span><span class="MathJax_Preview">P_n</span><script type="math/tex">P_n</script></span>.</p>
+<h3 id="classical_mechanics_2">Classical Mechanics (2)</h3>
+<p>Let the time update of position <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span>, velocity <span><span class="MathJax_Preview">{\dot r}</span><script type="math/tex">{\dot r}</script></span>, acceleration <span><span class="MathJax_Preview">{\ddot r}</span><script type="math/tex">{\ddot r}</script></span> be</p>
+<div>
+<div class="MathJax_Preview">
+\begin{cases}
+    r_n &amp;\leftarrow r_{n-1} + {\dot r}_{n-1}\Delta t + {1\over2}{\ddot r}_n(\Delta t)^2 + {1\over6}j(\Delta t)^3\\
+    {\dot r}_n &amp;\leftarrow {\dot r}_{n-1} + {\ddot r}_{n-1}\Delta t + {1\over2}j(\Delta t)^2\\
+    {\ddot r}_n &amp;\leftarrow {\ddot r}_{n-1} + j\Delta t.
+\end{cases}
+</div>
+<script type="math/tex; mode=display">
+\begin{cases}
+    r_n &\leftarrow r_{n-1} + {\dot r}_{n-1}\Delta t + {1\over2}{\ddot r}_n(\Delta t)^2 + {1\over6}j(\Delta t)^3\\
+    {\dot r}_n &\leftarrow {\dot r}_{n-1} + {\ddot r}_{n-1}\Delta t + {1\over2}j(\Delta t)^2\\
+    {\ddot r}_n &\leftarrow {\ddot r}_{n-1} + j\Delta t.
+\end{cases}
+</script>
+</div>
+<p>Defining the internal state as</p>
+<div>
+<div class="MathJax_Preview">
+\mu_n = \left(\begin{array}{c}
+    r_n\\
+    {\dot r}_n\\
+    {\ddot r}_n
+\end{array}\right),
+</div>
+<script type="math/tex; mode=display">
+\mu_n = \left(\begin{array}{c}
+    r_n\\
+    {\dot r}_n\\
+    {\ddot r}_n
+\end{array}\right),
+</script>
+</div>
+<p>the prediction step is</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+    \mu_n &amp;\leftarrow A \mu_{n-1}\\
+    &amp;= \left(\begin{array}{ccc}
+        1 &amp; \Delta t &amp; {1\over2}(\Delta t)^2\\
+        0 &amp; 1 &amp; \Delta t\\
+        0 &amp; 0 &amp; 1
+    \end{array}\right) \mu_{n-1}\\
+    P_n &amp;\leftarrow AP_nA^\top + \left(\begin{array}{c}
+        {1\over6}j(\Delta t)^3\\
+        {1\over2}j(\Delta t)^2\\
+        j\Delta t
+    \end{array}\right)
+    (\begin{array}{ccc}
+        {1\over6}j(\Delta t)^3
+        &amp; {1\over2}j(\Delta t)^2
+        &amp; j\Delta t
+    \end{array})\\
+    &amp;= AP_nA^\top + \left(\begin{array}{ccc}
+        {1\over36}(\Delta t)^6 &amp; {1\over12}(\Delta t)^5 &amp; {1\over6}(\Delta t)^4\\
+        {1\over12}(\Delta t)^5 &amp; {1\over4}(\Delta t)^4 &amp; {1\over2}(\Delta t)^3\\
+        {1\over6}(\Delta t)^4 &amp; {1\over2}(\Delta t)^3 &amp; (\Delta t)^2
+    \end{array}\right)j^2.
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \mu_n &\leftarrow A \mu_{n-1}\\
+    &= \left(\begin{array}{ccc}
+        1 & \Delta t & {1\over2}(\Delta t)^2\\
+        0 & 1 & \Delta t\\
+        0 & 0 & 1
+    \end{array}\right) \mu_{n-1}\\
+    P_n &\leftarrow AP_nA^\top + \left(\begin{array}{c}
+        {1\over6}j(\Delta t)^3\\
+        {1\over2}j(\Delta t)^2\\
+        j\Delta t
+    \end{array}\right)
+    (\begin{array}{ccc}
+        {1\over6}j(\Delta t)^3
+        & {1\over2}j(\Delta t)^2
+        & j\Delta t
+    \end{array})\\
+    &= AP_nA^\top + \left(\begin{array}{ccc}
+        {1\over36}(\Delta t)^6 & {1\over12}(\Delta t)^5 & {1\over6}(\Delta t)^4\\
+        {1\over12}(\Delta t)^5 & {1\over4}(\Delta t)^4 & {1\over2}(\Delta t)^3\\
+        {1\over6}(\Delta t)^4 & {1\over2}(\Delta t)^3 & (\Delta t)^2
+    \end{array}\right)j^2.
+\end{aligned}
+</script>
+</div>
+<p>Given observed position <span><span class="MathJax_Preview">x_n</span><script type="math/tex">x_n</script></span> with mesurement noise <span><span class="MathJax_Preview">\sigma_x^2</span><script type="math/tex">\sigma_x^2</script></span>, the filtering step is</p>
+<div>
+<div class="MathJax_Preview">
+\begin{aligned}
+    \mu_n &amp;\leftarrow \mu_n + K_n(x_n - \mu_n)\\
+    &amp;= \left(\begin{array}{c}
+    \frac{\sigma_x^2r_n + P_n(0, 0)x_n}{P_n(0, 0) + \sigma_x^2}\\
+    {\dot r}_n + \frac{P_n(1, 0)}{P_n(0, 0) + \sigma_x^2}(x_n - r_n)\\
+    {\ddot r}_n + \frac{P_n(2, 0)}{P_n(0, 0) + \sigma_x^2}(x_n - r_n)
+    \end{array}\right)\\
+    P_n &amp;\leftarrow P_n - P_n\left(\begin{array}{c}1\\0\\0\end{array}\right)
+        \frac{1}{P_n(0,0) + \sigma_x^2}(\begin{array}{ccc}1&amp;0&amp;0\end{array})P_n
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \mu_n &\leftarrow \mu_n + K_n(x_n - \mu_n)\\
+    &= \left(\begin{array}{c}
+    \frac{\sigma_x^2r_n + P_n(0, 0)x_n}{P_n(0, 0) + \sigma_x^2}\\
+    {\dot r}_n + \frac{P_n(1, 0)}{P_n(0, 0) + \sigma_x^2}(x_n - r_n)\\
+    {\ddot r}_n + \frac{P_n(2, 0)}{P_n(0, 0) + \sigma_x^2}(x_n - r_n)
+    \end{array}\right)\\
+    P_n &\leftarrow P_n - P_n\left(\begin{array}{c}1\\0\\0\end{array}\right)
+        \frac{1}{P_n(0,0) + \sigma_x^2}(\begin{array}{ccc}1&0&0\end{array})P_n
+\end{aligned}
+</script>
+</div>
+<p>where Kalman gain <span><span class="MathJax_Preview">K_n</span><script type="math/tex">K_n</script></span> is</p>
+<div>
+<div class="MathJax_Preview">
+K_n = \frac{1}{P_n(0,0) + \sigma_x^2}\left(\begin{array}{c}
+    P_n(0,0)\\
+    P_n(1,0)\\
+    P_n(2,0)
+\end{array}\right).
+</div>
+<script type="math/tex; mode=display">
+K_n = \frac{1}{P_n(0,0) + \sigma_x^2}\left(\begin{array}{c}
+    P_n(0,0)\\
+    P_n(1,0)\\
+    P_n(2,0)
+\end{array}\right).
 </script>
 </div>
                 
@@ -997,7 +1368,7 @@ given an entire observation sequence <span><span class="MathJax_Preview">\{x_n\}
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../kalman/" title="Kalman Filter" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../.." title="Welcome to My Tech Notes" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1006,19 +1377,19 @@ given an entire observation sequence <span><span class="MathJax_Preview">\{x_n\}
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Kalman Filter
+                Welcome to My Tech Notes
               </span>
             </div>
           </a>
         
         
-          <a href="../../information_technology/autohotkey/" title="AutoHotkey" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../recursive_bayesian_estimation/" title="Recursive Bayesian Estimation" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                AutoHotkey
+                Recursive Bayesian Estimation
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
