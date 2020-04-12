@@ -36,7 +36,7 @@ Updating estimation of hidden random variables $\{z_n\}_{n=0}^N$
 given an entire observation sequence $\{x_n\}_{n=0}^N$.
 
 $$
-\begin{align}
+\begin{aligned}
     p(z_n|x_1,...,x_N) &= \int p(z_n, z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
     &= \int p(z_n|z_{n+1}, x_1,...,x_N) p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
     &= \int p(z_n|z_{n+1}, x_1,...,x_n) p(z_{n+1}|x_1,...,x_N) {\rm d}z_{n+1}\\
@@ -45,5 +45,5 @@ $$
     &= p(z_n|x_1,...,x_n) \int
     \frac{p(z_{n+1}|x_1,...,x_N) p(z_{n+1}|z_n)}{p(z_{n+1}|x_1,...,x_n)}
     {\rm d}z_{n+1}
-\end{align}
+\end{aligned}
 $$
