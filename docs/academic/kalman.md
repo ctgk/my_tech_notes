@@ -4,8 +4,8 @@ The model of Kalman filter with fixed system and measurement model:
 
 $$
 \begin{aligned}
-p(x_n) &= p(x_n|z_n) \left[\prod_{i=1}^n p(z_i|z_{i-1})\right]p(z_0)\\
-&= \mathcal{N}(x_n|Az_n, \Sigma)
+p(x_n, z_n, \cdots, z_0) &= p(x_n|z_n) \left[\prod_{i=1}^n p(z_i|z_{i-1})\right]p(z_0)\\
+&= \mathcal{N}(x_n|Cz_n, \Sigma)
     \left[\prod_{i=1}^n \mathcal{N}(z_i|Az_{i-1},\Gamma)\right]
     \mathcal{N}(z_0|\mu_0,P_0).
 \end{aligned}
