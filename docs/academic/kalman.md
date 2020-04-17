@@ -1,74 +1,76 @@
 # Kalman Filter
 
-The model of Kalman filter with fixed system and measurement model:
+Consider the following hidden Markov model with fixed system and measurement model:
 
 $$
 \begin{aligned}
-p(x_n, z_n, \cdots, z_0) &= p(x_n|z_n) \left[\prod_{i=1}^n p(z_i|z_{i-1})\right]p(z_0)\\
-&= \mathcal{N}(x_n|Cz_n, \Sigma)
-    \left[\prod_{i=1}^n \mathcal{N}(z_i|Az_{i-1},\Gamma)\right]
-    \mathcal{N}(z_0|\mu_0,P_0).
+p(\bm z_n, \bm x_n, \cdots, \bm x_0) &= p(\bm z_n|\bm x_n)
+    \left[\prod_{i=1}^n p(\bm x_i|\bm x_{i-1})\right]
+    p(\bm x_0)\\
+&= \mathcal{N}(\bm z_n|H\bm x_n, \Sigma)
+    \left[\prod_{i=1}^n \mathcal{N}(\bm x_i|F\bm x_{i-1},\Gamma)\right]
+    \mathcal{N}(\bm x_0|\bm\mu_0,P_0).
 \end{aligned}
 $$
 
-|Notations   |Descriptions   |
+| Notations | Descriptions |
 |:-:|---|
 |$\mathcal{N}$| Gaussian distribution of a random variable parameterized by mean and covariance.|
-|$z_n$ | Random variable of internal state.  |
-|$\mu_n$| Mean parameter of internal state.|
+|$\bm x_n$ | Random variable of internal state. |
+|$\bm\mu_n$| Mean parameter of internal state.|
 |$P_n$|Covariance parameter of internal state.|
-|$A$| System matrix. |
+|$F$| System matrix. |
 |$\Gamma$|Covariance matrix of system noise.|
-|$x_n$|Random variable of observation.|
-|$C$|Measurement matrix.|
+|$\bm z_n$|Random variable of observation.|
+|$H$|Measurement matrix.|
 |$\Sigma$|Covariance matrix of measurement noise.|
 |$M[i,j]$|Element of matrix $M$ at $i^\text{th}$ row $j^\text{th}$ column.|
 
 ## Prediction
 
-Given the distribution of $z_{n-1}$,
+Given the distribution of $\bm x_{n-1}$,
 
 $$
-p(z_{n-1}|...) = \mathcal{N}(z_{n-1}|\mu_{n-1}, P_{n-1}),
+p(\bm x_{n-1}|...) = \mathcal{N}(\bm x_{n-1}|\bm\mu_{n-1}, P_{n-1}),
 $$
 
 the distribution of next internal state is
 
 $$
 \begin{aligned}
-p(z_n|...) &= \int p(z_n|z_{n-1})p(z_{n-1}|...){\rm d}z_{n-1}\\
-&= \mathcal{N}(z_n|A\mu_{n-1}, AP_{n-1}A^{\top}+\Gamma).
+p(\bm x_n|...) &= \int p(\bm x_n|\bm x_{n-1})p(\bm x_{n-1}|...){\rm d}\bm x_{n-1}\\
+&= \mathcal{N}(\bm x_n|F\bm\mu_{n-1}, FP_{n-1}F^{\top}+\Gamma).
 \end{aligned}
 $$
 
 ## Filtering
 
-Given the distribution of $z_n$,
+Given the distribution of $\bm x_n$,
 
 $$
-p(z_n|...) = \mathcal{N}(z_n|\mu_n, P_n),
+p(\bm x_n|...) = \mathcal{N}(\bm x_n|\bm\mu_n, P_n),
 $$
 
-and a new observation $x_n$, the posterior distribution of $z_n$ is
+and a new observation $\bm z_n$, the posterior distribution of $\bm x_n$ is
 
 $$
 \begin{aligned}
-p(z_n|x_n, ...) &\propto p(x_n|z_n)p(z_n|...)\\
-&= \mathcal{N}(z_n|\mu_n + K_n(x_n - C\mu_n), (I - K_nC)P_n),
+p(\bm x_n|\bm z_n, ...) &\propto p(\bm z_n|\bm x_n)p(\bm x_n|...)\\
+&= \mathcal{N}(\bm z_n|\bm\mu_n + K_n(\bm x_n - H\bm\mu_n), (I - K_nH)P_n),
 \end{aligned}
 $$
 
 where Kalman gain matrix $K_n$ is
 
 $$
-K_n = P_nC^\top(CP_nC^\top + \Sigma)^{-1}.
+K_n = P_nH^\top(HP_nH^\top + \Sigma)^{-1}.
 $$
 
 ## Example
 
 ### Scalar
 
-Let $A = 1$, $C=1$, prediction step and filtering step will be,
+Let $F = 1$, $H=1$, prediction step and filtering step will be,
 
 $$
 \begin{aligned}
@@ -85,155 +87,159 @@ $$
 
 ### Classical Mechanics
 
-Let the time update of position $r$ and velocity ${\dot r}$ be
+Let the time update of position $x$ and velocity ${\dot x}$ be
 
 $$
 \begin{cases}
-    r_n &\leftarrow r_{n-1} + {\dot r}_{n-1}\Delta t + {1\over2}a(\Delta t)^2\\
-    {\dot r}_{n} &\leftarrow {\dot r}_{n-1} + a\Delta t.
+    x_n &\leftarrow x_{n-1} &+& {\dot x}_{n-1}\Delta t &+& {1\over2}a(\Delta t)^2\\
+    {\dot x}_{n} &\leftarrow && {\dot x}_{n-1} &+& a\Delta t.
 \end{cases}
 $$
 
 Let our internal state be
 
 $$
-\mu_n = \left[\begin{array}{c}
-    r_n\\
-    {\dot r}_n
-\end{array}\right],
+\bm\mu_n = \begin{bmatrix}
+    x_n\\
+    {\dot x}_n
+\end{bmatrix},
 $$
 
 then the prediction step is
 
 $$
 \begin{aligned}
-\mu_n &\leftarrow A\mu_{n-1}\\
-\Leftrightarrow
-\left[\begin{array}{c}
-    r_n\\
-    {\dot r}_n
-\end{array}\right]
-&\leftarrow
-\left[\begin{array}{cc}
-    1 & \Delta t\\
-    0 & 1
-\end{array}\right]\mu_{n-1}\\
-P_n &\leftarrow AP_nA^\top +
-    \left[\begin{array}{c}{1\over2}a(\Delta t)^2\\a\Delta t\end{array}\right]
-    \left[\begin{array}{cc}{1\over2}a(\Delta t)^2 & a\Delta t\end{array}\right]\\
-    &= \left[\begin{array}{cc}1&\Delta t\\0&1\end{array}\right]
-    P_{n-1} \left[\begin{array}{cc}1&0\\\Delta t&1\end{array}\right]
-    + \left[\begin{array}{cc}
+\bm\mu_n &\leftarrow F\bm\mu_{n-1}\\
+\Leftrightarrow&
+    \begin{bmatrix}x_n\\ {\dot x}_n\\ \end{bmatrix}
+    \leftarrow \begin{bmatrix}1 & \Delta t\\ 0 & 1\end{bmatrix}
+    \begin{bmatrix} x_{n-1}\\ {\dot x}_{n-1}\\ \end{bmatrix}\\
+P_n &\leftarrow HP_nH^\top +
+    \begin{bmatrix} {1\over2}a(\Delta t)^2 \\ a\Delta t \end{bmatrix}
+    \begin{bmatrix} {1\over2}a(\Delta t)^2 & a\Delta t \end{bmatrix}\\
+    &= \begin{bmatrix} 1 & \Delta t\\ 0 & 1\end{bmatrix}
+    P_{n-1} \begin{bmatrix} 1 & 0\\ \Delta t & 1\end{bmatrix}
+    + \begin{bmatrix}
         {1\over4}(\Delta t)^4 & {1\over2}(\Delta t)^3\\
         {1\over2}(\Delta t)^3 & (\Delta t)^2
-    \end{array}\right] a^2.
+    \end{bmatrix} a^2.
 \end{aligned}
 $$
 
-Let us observe position $x_n$ with measurement noise $\sigma_x^2$, the filtering step is
+Let us observe position $z_n$ with measurement noise $\sigma_z^2$,
+the measurement matrix $H = \begin{bmatrix}1 & 0\end{bmatrix}$ and
+the filtering step is
 
 $$
 \begin{aligned}
-\mu_n &\leftarrow \mu_n + K_n(x_n - r_n)\\
-    &= \left[\begin{array}{c}
-    \frac{\sigma_x^2r_n + P_n[0, 0]x_n}{P_n[0, 0] + \sigma_x^2}\\
-    {\dot r}_n + \frac{P_n[1, 0]}{P_n[0, 0] + \sigma_x^2}(x_n - r_n)
-    \end{array}\right]\\
+\bm\mu_n &\leftarrow \bm\mu_n + K_n(z_n - H\bm\mu_n)\\
+    &= \begin{bmatrix}
+    \frac{\sigma_z^2x_n + P_n[0, 0]z_n}{P_n[0, 0] + \sigma_z^2}\\
+    {\dot x}_n + \frac{P_n[1, 0]}{P_n[0, 0] + \sigma_z^2}(z_n - x_n)
+    \end{bmatrix}\\
 P_n &\leftarrow P_n
-    - P_n \left[\begin{array}{c}1\\0\end{array}\right]
-    \frac{1}{P_n[0,0] + \sigma_x^2}
-    [\begin{array}{cc} 1 & 0\end{array}]P_n\\
-    &= P_n - \frac{1}{P_n[0,0] + \sigma_x^2}\left[\begin{array}{cc}
+    - P_n \begin{bmatrix}1\\ 0\end{bmatrix}
+    \frac{1}{P_n[0,0] + \sigma_z^2}
+    \begin{bmatrix} 1 & 0\end{bmatrix}P_n\\
+&= P_n - \frac{1}{P_n[0,0] + \sigma_z^2}\begin{bmatrix}
         P_n[0,0] P_n[0,0] & P_n[0,0] P_n[0,1]\\
         P_n[0,0] P_n[1,0] & P_n[0,1] P_n[1,0]
-    \end{array}\right]\\
-    &= \frac{1}{P_n[0,0] + \sigma_x^2}\left[\begin{array}{cc}
-        P_n[0,0]\sigma_x^2 & P_n[0,1]\sigma_x^2\\
-        P_n[1,0]\sigma_x^2 & P_n[0,0]P_n[1,1] + P_n[1,1]\sigma_x^2 - P_n[0,1]P_n[1,0]
-    \end{array}\right],
+    \end{bmatrix}\\
+&= \frac{1}{P_n[0,0] + \sigma_z^2}\begin{bmatrix}
+        P_n[0,0]\sigma_z^2 & P_n[0,1]\sigma_z^2\\
+        P_n[1,0]\sigma_z^2 & P_n[0,0]P_n[1,1] + P_n[1,1]\sigma_z^2 - P_n[0,1]P_n[1,0]
+    \end{bmatrix},
 \end{aligned}
 $$
 
 where Kalman gain $K_n$ is
 
 $$
-K_n = {1\over P_n[0, 0] + \sigma_x^2}\left[\begin{array}{c}
-    P_n[0, 0]\\
-    P_n[1, 0]
-\end{array}\right].
+K_n = {1\over P_n[0, 0] + \sigma_x^2}
+    \begin{bmatrix}P_n[0, 0]\\ P_n[1, 0]\end{bmatrix}.
 $$
 
 Note that update rule of the first element of $\mu_n$ is just an interpolation of predicted value and observed value, which is indentical with [the filtering of scalar $\mu_n$](kalman.md#scalar). Also the the first element of $P_n$.
 
 ### Classical Mechanics (2)
 
-Let the time update of position $r$, velocity ${\dot r}$, acceleration ${\ddot r}$ be
+Let the time update of position $x$, velocity ${\dot x}$, acceleration ${\ddot x}$ be
 
 $$
 \begin{cases}
-    r_n &\leftarrow r_{n-1} + {\dot r}_{n-1}\Delta t + {1\over2}{\ddot r}_n(\Delta t)^2 + {1\over6}j(\Delta t)^3\\
-    {\dot r}_n &\leftarrow {\dot r}_{n-1} + {\ddot r}_{n-1}\Delta t + {1\over2}j(\Delta t)^2\\
-    {\ddot r}_n &\leftarrow {\ddot r}_{n-1} + j\Delta t.
+x_n &\leftarrow x_{n-1} &+& {\dot x}_{n-1}\Delta t
+    &+& {1\over2}{\ddot x}_n(\Delta t)^2 &+& {1\over6}j(\Delta t)^3\\
+{\dot x}_n &\leftarrow && {\dot x}_{n-1} &+& {\ddot x}_{n-1}\Delta t
+    &+& {1\over2}j(\Delta t)^2\\
+{\ddot x}_n &\leftarrow && && {\ddot x}_{n-1} &+& j\Delta t.
 \end{cases}
 $$
 
 Defining the internal state as
 
 $$
-\mu_n = \left[\begin{array}{c}
-    r_n\\
-    {\dot r}_n\\
-    {\ddot r}_n
-\end{array}\right],
+\bm\mu_n = \begin{bmatrix}
+    x_n\\
+    {\dot x}_n\\
+    {\ddot x}_n
+\end{bmatrix},
 $$
 
 the prediction step is
 
 $$
 \begin{aligned}
-    \mu_n &\leftarrow A \mu_{n-1}\\
-    &= \left[\begin{array}{ccc}
+\bm\mu_n &\leftarrow F \bm\mu_{n-1}\\
+\Leftrightarrow& \begin{bmatrix}x_n\\ {\dot x}_n\\ {\ddot x}_n\end{bmatrix}
+    \leftarrow \begin{bmatrix}
         1 & \Delta t & {1\over2}(\Delta t)^2\\
         0 & 1 & \Delta t\\
         0 & 0 & 1
-    \end{array}\right] \mu_{n-1}\\
-    P_n &\leftarrow AP_nA^\top + \left[\begin{array}{c}
-        {1\over6}j(\Delta t)^3\\
-        {1\over2}j(\Delta t)^2\\
-        j\Delta t
-    \end{array}\right]
-    [\begin{array}{ccc}
-        {1\over6}j(\Delta t)^3
-        & {1\over2}j(\Delta t)^2
-        & j\Delta t
-    \end{array}]\\
-    &= AP_nA^\top + \left[\begin{array}{ccc}
+    \end{bmatrix}
+    \begin{bmatrix}
+        x_{n-1}\\ {\dot x}_{n-1}\\ {\ddot x}_{n-1}\\
+    \end{bmatrix}
+\\
+P_n &\leftarrow FP_nF^\top + \begin{bmatrix}
+        {1\over6}j(\Delta t)^3\\ {1\over2}j(\Delta t)^2\\ j\Delta t
+    \end{bmatrix}
+    \begin{bmatrix}
+        {1\over6}j(\Delta t)^3 & {1\over2}j(\Delta t)^2 & j\Delta t
+    \end{bmatrix}\\
+    &= FP_nF^\top + \begin{bmatrix}
         {1\over36}(\Delta t)^6 & {1\over12}(\Delta t)^5 & {1\over6}(\Delta t)^4\\
         {1\over12}(\Delta t)^5 & {1\over4}(\Delta t)^4 & {1\over2}(\Delta t)^3\\
         {1\over6}(\Delta t)^4 & {1\over2}(\Delta t)^3 & (\Delta t)^2
-    \end{array}\right]j^2.
+    \end{bmatrix}j^2.
 \end{aligned}
 $$
 
-Given observed position $x_n$ with mesurement noise $\sigma_x^2$, the filtering step is
+Given observed position $z_n$ with mesurement noise $\sigma_z^2$, the measurement matrix
+$H = \begin{bmatrix}1 & 0 & 0\end{bmatrix}$ and the filtering step is
 
 $$
 \begin{aligned}
-    \mu_n &\leftarrow \mu_n + K_n(x_n - \mu_n)\\
-    &= \left[\begin{array}{c}
-    \frac{\sigma_x^2r_n + P_n[0, 0]x_n}{P_n[0, 0] + \sigma_x^2}\\
-    {\dot r}_n + \frac{P_n[1, 0]}{P_n[0, 0] + \sigma_x^2}(x_n - r_n)\\
-    {\ddot r}_n + \frac{P_n(2, 0)}{P_n[0, 0] + \sigma_x^2}(x_n - r_n)
-    \end{array}\right]\\
-    P_n &\leftarrow P_n - P_n\left[\begin{array}{c}1\\0\\0\end{array}\right]
-        \frac{1}{P_n[0,0] + \sigma_x^2}[\begin{array}{ccc}1&0&0\end{array}]P_n
+\bm\mu_n &\leftarrow \bm\mu_n + K_n(z_n - H\bm\mu_n)\\
+&= \begin{bmatrix}
+        \frac{\sigma_z^2x_n + P_n[0, 0]z_n}{P_n[0, 0] + \sigma_z^2}\\
+        {\dot x}_n + \frac{P_n[1, 0]}{P_n[0, 0] + \sigma_z^2}(z_n - x_n)\\
+        {\ddot x}_n + \frac{P_n(2, 0)}{P_n[0, 0] + \sigma_z^2}(z_n - x_n)
+    \end{bmatrix}\\
+P_n &\leftarrow P_n - P_n\begin{bmatrix}1\\0\\0\end{bmatrix}
+    \frac{1}{P_n[0,0] + \sigma_z^2}\begin{bmatrix}1 & 0 & 0\end{bmatrix}P_n\\
+&= P_n - \frac{1}{P_n[0,0] + \sigma_z^2}
+    \begin{bmatrix}
+        P_n[0,0]P_n[0,0] & P_n[0,0]P_n[0,1] & P_n[0,0]P_n[0,2]\\
+        P_n[1,0]P_n[0,0] & P_n[1,0]P_n[0,1] & P_n[1,0]P_n[0,2]\\
+        P_n[2,0]P_n[0,0] & P_n[2,0]P_n[0,1] & P_n[2,0]P_n[0,2]\\
+    \end{bmatrix}
 \end{aligned}
 $$
 
 where Kalman gain $K_n$ is
 
 $$
-K_n = \frac{1}{P_n[0,0] + \sigma_x^2}\left[\begin{array}{c}
+K_n = \frac{1}{P_n[0,0] + \sigma_z^2}\left[\begin{array}{c}
     P_n[0,0]\\
     P_n[1,0]\\
     P_n[2,0]
