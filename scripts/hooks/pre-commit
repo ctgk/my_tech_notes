@@ -31,7 +31,7 @@ for script in ; do
     done
 done
 
-for script in check_unstaged_untracked.sh
+for script in mkdocs_build.sh check_unstaged_untracked.sh
 do
     echo $script
     ${gittop_dir}/scripts/${script}
